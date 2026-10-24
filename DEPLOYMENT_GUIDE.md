@@ -226,11 +226,13 @@ You can also upload with an SFTP client (FileZilla) using the credentials in hPa
    `srivofy.com` and `www.srivofy.com`.
 5. **Enable SSL:** hPanel → **Security** → **SSL** → install the free SSL certificate for
    `srivofy.com` (include `www`). Wait until it shows **Active**.
-6. **Canonical domain:** the site's `.htaccess` redirects `http://` and `srivofy.com` to
-   **`https://www.srivofy.com`**. If you prefer the non-www version instead, change
-   `siteConfig.website` in `src/config/site.ts` and the redirect rule in `public/.htaccess`.
-7. **Test** `http://srivofy.com`, `https://srivofy.com`, `http://www.srivofy.com` — all should end
-   at `https://www.srivofy.com/`.
+6. **Canonical domain:** Hostinger serves the site at **`https://srivofy.com`** and redirects
+   `www.srivofy.com` there. The site's SEO settings (`siteConfig.canonicalUrl` in
+   `src/config/site.ts`) match this, and `public/.htaccess` only forces HTTPS — it deliberately
+   does not force a host, because two opposite host redirects would loop. To prefer `www` instead,
+   change Hostinger's preferred domain first, then set `canonicalUrl` to `https://www.srivofy.com`.
+7. **Test** `http://srivofy.com`, `http://www.srivofy.com`, `https://www.srivofy.com` — all should end
+   at `https://srivofy.com/`.
 
 ---
 

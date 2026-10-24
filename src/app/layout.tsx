@@ -25,7 +25,7 @@ const description =
   "Srivofy helps businesses automate customer conversations, streamline operations, process documents and build better digital experiences with practical AI.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.website),
+  metadataBase: new URL(siteConfig.canonicalUrl),
   title: {
     default: "Srivofy | AI Automation for Business",
     template: "%s | Srivofy",

@@ -5,7 +5,7 @@ import { siteConfig } from "@/config/site";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = siteConfig.website.replace(/\/$/, "");
+  const base = siteConfig.canonicalUrl.replace(/\/$/, "");
   const paths = [
     "/",
     "/services/",

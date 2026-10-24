@@ -17,8 +17,16 @@ export const siteConfig = {
   name: "Srivofy",
   tagline: "AI Automation Agency",
 
-  /** Canonical address of the live site (used for SEO, sitemap and share cards). */
-  website: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.srivofy.com",
+  /** Website address shown to visitors (utility bar, footer, contact page). */
+  website: "https://www.srivofy.com",
+
+  /**
+   * Canonical address used for SEO, the sitemap and share cards. Must match
+   * the address Hostinger finally serves: Hostinger redirects www → srivofy.com,
+   * so the canonical origin is the non-www domain. (If you switch Hostinger's
+   * preferred domain to www later, change this to "https://www.srivofy.com".)
+   */
+  canonicalUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://srivofy.com",
 
   email: "inquiry@srivofy.com",
 
