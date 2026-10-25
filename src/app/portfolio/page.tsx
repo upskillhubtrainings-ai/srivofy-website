@@ -29,7 +29,6 @@ export default function PortfolioPage() {
   return (
     <>
       <PageHero
-        crumb="Portfolio"
         eyebrow="Portfolio"
         title="Selected work."
         intro="Projects we have designed and delivered, grouped by the services involved."

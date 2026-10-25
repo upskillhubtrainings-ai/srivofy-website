@@ -31,7 +31,6 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        crumb="About"
         eyebrow="About Srivofy"
         title="Practical AI. Thoughtful automation. Better workflows."
         intro="Srivofy is an AI automation agency. We help businesses identify where automation genuinely helps, design workflows around their people and systems, and build solutions that stay understandable and controllable."

@@ -136,10 +136,10 @@ export function whatsappHref(): string | null {
   return `https://wa.me/${digits}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`;
 }
 
+/** Main menu, in display order. "Services" also opens the services dropdown. */
 export const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "/services/" },
-  { label: "Our Approach", href: "/#approach" },
   { label: "About", href: "/about/" },
+  { label: "Services", href: "/services/" },
   { label: "Contact", href: "/contact/" },
 ] as const;

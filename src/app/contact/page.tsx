@@ -24,7 +24,6 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        crumb="Contact"
         eyebrow="Contact"
         title="Let's talk about your workflows."
         intro="Request a consultation or ask a question. Tell us what slows your team down and we'll help you find the right place to start."

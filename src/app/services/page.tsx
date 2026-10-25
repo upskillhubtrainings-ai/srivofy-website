@@ -26,7 +26,6 @@ export default function ServicesPage() {
   return (
     <>
       <PageHero
-        crumb="Services"
         eyebrow="Services"
         title="Five capabilities for practical business automation."
         intro="Each service solves a specific operational problem. Start with one, and connect more as your workflows grow."

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, ChevronRight, PlayCircle } from "lucide-react";
+import { ArrowRight, PlayCircle } from "lucide-react";
 import type { Metadata } from "next";
 import { serviceHref, services, type Service } from "@/config/services";
 import { consultationHref, isConfiguredUrl, siteConfig, youtubeId } from "@/config/site";
@@ -21,25 +21,6 @@ export function serviceMetadata(s: Service): Metadata {
   };
 }
 
-export function Breadcrumbs({ items }: { items: { label: string; href?: string }[] }) {
-  return (
-    <nav aria-label="Breadcrumb">
-      <ol className="flex flex-wrap items-center gap-1.5 text-[13px] text-muted">
-        {items.map((it, i) => (
-          <li key={it.label} className="flex items-center gap-1.5">
-            {i > 0 && <ChevronRight aria-hidden className="size-3.5" />}
-            {it.href ? (
-              <Link href={it.href} className="hover:text-navy">{it.label}</Link>
-            ) : (
-              <span aria-current="page" className="text-navy">{it.label}</span>
-            )}
-          </li>
-        ))}
-      </ol>
-    </nav>
-  );
-}
-
 /** Service page hero: text left, the service's own visual right. */
 export function ServiceHero({ service, visual }: { service: Service; visual: React.ReactNode }) {
   // A YouTube demo plays in a popup; another demo link opens in a new tab;
@@ -49,11 +30,8 @@ export function ServiceHero({ service, visual }: { service: Service; visual: Rea
   const videoId = youtubeId(demoUrl);
   return (
     <section aria-labelledby="service-title" className="border-b border-line bg-white">
-      <div className="container-page pt-8 pb-16 sm:pb-20 lg:pb-24">
-        <div className="enter" style={delay(0)}>
-          <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Services", href: "/services/" }, { label: service.name }]} />
-        </div>
-        <div className="mt-10 grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
+      <div className="container-page pt-14 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-24">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
           <div>
             <div className="enter flex items-center gap-3" style={delay(60)}>
               <span className="grid size-11 place-items-center rounded-md bg-blue-50 text-blue">
