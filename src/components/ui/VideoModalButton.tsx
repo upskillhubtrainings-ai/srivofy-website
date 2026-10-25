@@ -28,6 +28,7 @@ export function VideoModalButton({
 
   useEffect(() => {
     const dialog = dialogRef.current;
+    const trigger = triggerRef.current;
     if (!dialog) return;
     if (open && !dialog.open) dialog.showModal();
     if (!open && dialog.open) dialog.close();
@@ -36,7 +37,7 @@ export function VideoModalButton({
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = prev;
-      triggerRef.current?.focus(); // return focus to the button that opened it
+      trigger?.focus(); // return focus to the button that opened it
     };
   }, [open]);
 
