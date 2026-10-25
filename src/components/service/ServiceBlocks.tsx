@@ -2,10 +2,9 @@ import Link from "next/link";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import type { Metadata } from "next";
 import { serviceHref, services, type Service } from "@/config/services";
-import { consultationHref, siteConfig, youtubeId } from "@/config/site";
+import { consultationHref, isConfiguredUrl, siteConfig } from "@/config/site";
 import { ButtonLink } from "../ui/Button";
 import { DemoLink } from "../ui/DemoLink";
-import { YouTubeEmbed } from "../ui/YouTubeEmbed";
 import { PauseOffscreen, Reveal } from "../ui/Reveal";
 import { Eyebrow, Section, SectionHeader } from "../ui/Section";
 import { WorkflowDiagram } from "../visuals/WorkflowDiagram";
@@ -42,6 +41,9 @@ export function Breadcrumbs({ items }: { items: { label: string; href?: string }
 
 /** Service page hero: text left, the service's own visual right. */
 export function ServiceHero({ service, visual }: { service: Service; visual: React.ReactNode }) {
+  // With a demo link configured the button opens it (new tab); otherwise it scrolls to the demo section.
+  const demoUrl = siteConfig.demoLinks[service.demo.key];
+  const hasDemo = isConfiguredUrl(demoUrl);
   return (
     <section aria-labelledby="service-title" className="border-b border-line bg-white">
       <div className="container-page pt-8 pb-16 sm:pb-20 lg:pb-24">
@@ -66,8 +68,8 @@ export function ServiceHero({ service, visual }: { service: Service; visual: Rea
               <ButtonLink href={consultationHref} size="lg" arrow>
                 Request a Consultation
               </ButtonLink>
-              <ButtonLink href="#demo" variant="secondary" size="lg">
-                See the demo
+              <ButtonLink href={hasDemo ? demoUrl : "#demo"} variant="secondary" size="lg" arrow={hasDemo}>
+                {hasDemo ? "Watch Demo" : "See the demo"}
               </ButtonLink>
             </div>
           </div>
@@ -132,51 +134,23 @@ export function WorkflowSection({
 }
 
 /**
- * Dedicated demo area. If the service's demo link (siteConfig.demoLinks) is a
- * YouTube video it plays here on the page; otherwise the illustrative preview
- * is shown with the external demo button / "coming soon" state.
+ * Dedicated demo area: illustrative preview + the demo button. The button
+ * opens the service's link from siteConfig.demoLinks in a new tab, or shows
+ * "Demo coming soon" when no link is set.
  */
 export function DemoSection({
   service,
   preview,
   title,
   intro,
-  videoIntro,
   extra,
 }: {
   service: Service;
   preview: React.ReactNode;
   title?: string;
   intro?: string;
-  /** Intro text used instead of `intro` when a demo video is configured. */
-  videoIntro?: string;
   extra?: React.ReactNode;
 }) {
-  const demoUrl = siteConfig.demoLinks[service.demo.key];
-  const videoId = youtubeId(demoUrl);
-
-  if (videoId) {
-    return (
-      <section id="demo" aria-labelledby="demo-title" className="scroll-mt-24 border-y border-line bg-paper py-20 sm:py-24">
-        <div className="container-page">
-          <SectionHeader id="demo-title" eyebrow="Demo" title={title ?? service.demo.label} intro={videoIntro ?? intro} />
-          <div className="mx-auto mt-12 max-w-5xl">
-            <YouTubeEmbed id={videoId} title={title ?? service.demo.label} />
-          </div>
-          {extra}
-          <div className="mx-auto mt-8 flex max-w-5xl flex-col gap-4 border-t border-line pt-8 sm:flex-row sm:items-center sm:justify-between">
-            <p className="max-w-xl text-[14px] text-muted">
-              Want to see how this would work for your business? Request a consultation and we&apos;ll walk you through it.
-            </p>
-            <ButtonLink href={demoUrl} variant="secondary" arrow>
-              Watch on YouTube
-            </ButtonLink>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
   return (
     <section id="demo" aria-labelledby="demo-title" className="scroll-mt-24 border-y border-line bg-paper py-20 sm:py-24">
       <div className="container-page">

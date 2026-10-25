@@ -57,8 +57,7 @@ demoLinks: {
 },
 ```
 
-**YouTube links play right on the service page** (the player loads only when a visitor clicks
-play); other links open in a new tab. Empty values show **"Demo coming soon"** with a disabled
+The service page's **Watch Demo** buttons open the link in a new tab. Empty values show **"Demo coming soon"** with a disabled
 button — never a broken link. Currently set: Social Media, AI Voice Agents, and Website
 Development (the website AI assistant video).
 

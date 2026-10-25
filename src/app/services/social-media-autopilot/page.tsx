@@ -87,7 +87,6 @@ export default function SocialMediaAutopilotPage() {
       <DemoSection
         service={service}
         intro="An illustrative content calendar showing posts at each stage of the workflow."
-        videoIntro="Watch how Social Media Autopilot takes content from idea to approved, scheduled posts."
         preview={<ContentCalendar />}
       />
 

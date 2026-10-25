@@ -50,9 +50,8 @@ export const siteConfig = {
   portfolioEnabled: false,
 
   /**
-   * Demo links, one per service. Paste a full https:// URL.
-   * YouTube links play right on the service page; other links open in a new tab.
-   * Empty = "Demo coming soon".
+   * Demo links, one per service. Paste a full https:// URL (e.g. a YouTube video).
+   * The service page's demo buttons open it in a new tab. Empty = "Demo coming soon".
    */
   demoLinks: {
     socialMedia: "https://youtu.be/QvM_oxRVT5A",
@@ -112,13 +111,6 @@ const socialLabels: Record<SocialKey, string> = {
 export const socialProfiles = (Object.keys(siteConfig.socialLinks) as SocialKey[])
   .filter((key) => isConfiguredUrl(siteConfig.socialLinks[key]))
   .map((key) => ({ key, label: socialLabels[key], url: siteConfig.socialLinks[key] as string }));
-
-/** YouTube video id from a youtu.be / watch / shorts / embed URL, or null. */
-export function youtubeId(url: string | undefined | null): string | null {
-  if (!isConfiguredUrl(url)) return null;
-  const m = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:.*&)?v=|shorts\/|embed\/|live\/))([\w-]{11})/i);
-  return m ? m[1] : null;
-}
 
 export const telHref = `tel:${siteConfig.phone.replace(/[^\d+]/g, "")}`;
 export const mailHref = `mailto:${siteConfig.email}`;
