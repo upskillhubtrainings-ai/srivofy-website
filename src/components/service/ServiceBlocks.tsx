@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronRight, PlayCircle } from "lucide-react";
 import type { Metadata } from "next";
 import { serviceHref, services, type Service } from "@/config/services";
-import { consultationHref, isConfiguredUrl, siteConfig } from "@/config/site";
-import { ButtonLink } from "../ui/Button";
+import { consultationHref, isConfiguredUrl, siteConfig, youtubeId } from "@/config/site";
+import { buttonClasses, ButtonLink } from "../ui/Button";
 import { DemoLink } from "../ui/DemoLink";
+import { VideoModalButton } from "../ui/VideoModalButton";
 import { PauseOffscreen, Reveal } from "../ui/Reveal";
 import { Eyebrow, Section, SectionHeader } from "../ui/Section";
 import { WorkflowDiagram } from "../visuals/WorkflowDiagram";
@@ -41,9 +42,11 @@ export function Breadcrumbs({ items }: { items: { label: string; href?: string }
 
 /** Service page hero: text left, the service's own visual right. */
 export function ServiceHero({ service, visual }: { service: Service; visual: React.ReactNode }) {
-  // With a demo link configured the button opens it (new tab); otherwise it scrolls to the demo section.
+  // A YouTube demo plays in a popup; another demo link opens in a new tab;
+  // with no link the button scrolls to the demo section.
   const demoUrl = siteConfig.demoLinks[service.demo.key];
   const hasDemo = isConfiguredUrl(demoUrl);
+  const videoId = youtubeId(demoUrl);
   return (
     <section aria-labelledby="service-title" className="border-b border-line bg-white">
       <div className="container-page pt-8 pb-16 sm:pb-20 lg:pb-24">
@@ -68,9 +71,16 @@ export function ServiceHero({ service, visual }: { service: Service; visual: Rea
               <ButtonLink href={consultationHref} size="lg" arrow>
                 Request a Consultation
               </ButtonLink>
-              <ButtonLink href={hasDemo ? demoUrl : "#demo"} variant="secondary" size="lg" arrow={hasDemo}>
-                {hasDemo ? "Watch Demo" : "See the demo"}
-              </ButtonLink>
+              {videoId ? (
+                <VideoModalButton url={demoUrl} videoId={videoId} title={service.demo.label} className={buttonClasses("secondary", "lg")}>
+                  <PlayCircle aria-hidden className="size-[18px]" />
+                  Watch Demo
+                </VideoModalButton>
+              ) : (
+                <ButtonLink href={hasDemo ? demoUrl : "#demo"} variant="secondary" size="lg" arrow={hasDemo}>
+                  {hasDemo ? "Watch Demo" : "See the demo"}
+                </ButtonLink>
+              )}
             </div>
           </div>
           <PauseOffscreen>
@@ -164,7 +174,7 @@ export function DemoSection({
         {extra}
         <div className="mt-8 flex flex-col gap-4 border-t border-line pt-8 lg:flex-row lg:items-center lg:justify-between">
           <p className="max-w-xl text-[14px] text-muted">{service.demo.note}</p>
-          <DemoLink demoKey={service.demo.key} label={service.demo.button} />
+          <DemoLink demoKey={service.demo.key} label={service.demo.button} title={service.demo.label} />
         </div>
       </div>
     </section>

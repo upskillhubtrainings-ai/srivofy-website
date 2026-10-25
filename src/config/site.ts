@@ -112,6 +112,13 @@ export const socialProfiles = (Object.keys(siteConfig.socialLinks) as SocialKey[
   .filter((key) => isConfiguredUrl(siteConfig.socialLinks[key]))
   .map((key) => ({ key, label: socialLabels[key], url: siteConfig.socialLinks[key] as string }));
 
+/** YouTube video id from a youtu.be / watch / shorts / embed URL, or null. */
+export function youtubeId(url: string | undefined | null): string | null {
+  if (!isConfiguredUrl(url)) return null;
+  const m = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:.*&)?v=|shorts\/|embed\/|live\/))([\w-]{11})/i);
+  return m ? m[1] : null;
+}
+
 export const telHref = `tel:${siteConfig.phone.replace(/[^\d+]/g, "")}`;
 export const mailHref = `mailto:${siteConfig.email}`;
 export const websiteLabel = siteConfig.website.replace(/^https?:\/\//, "");
