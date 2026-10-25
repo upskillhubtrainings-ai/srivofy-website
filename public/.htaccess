@@ -6,6 +6,13 @@
 Options -Indexes
 DirectoryIndex index.html index.php
 
+# This is a static site: turn off LiteSpeed's page cache (left over from the
+# WordPress install Hostinger created) so it never serves a stale page.
+<IfModule LiteSpeed>
+  CacheLookup off
+  CacheDisable public /
+</IfModule>
+
 # Custom 404 page (also used for the disabled /portfolio/ route).
 ErrorDocument 404 /404.html
 
@@ -44,6 +51,7 @@ ErrorDocument 404 /404.html
   </FilesMatch>
   <FilesMatch "\.html$">
     Header set Cache-Control "no-cache"
+    Header set X-LiteSpeed-Cache-Control "no-cache"
   </FilesMatch>
 </IfModule>
 
