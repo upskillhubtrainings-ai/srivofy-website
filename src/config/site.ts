@@ -140,6 +140,7 @@ export function whatsappHref(): string | null {
 export const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about/" },
+  { label: "Our Approach", href: "/#approach" },
   { label: "Services", href: "/services/" },
   { label: "Contact", href: "/contact/" },
 ] as const;
