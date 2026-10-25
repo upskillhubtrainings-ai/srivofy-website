@@ -218,9 +218,9 @@ export const services: Service[] = [
     ],
     demo: {
       key: "websiteDevelopment",
-      label: "Website Development Showcase",
-      button: "View Project",
-      note: "Project showcase placeholder. Real projects will appear here once they are published.",
+      label: "Website AI Assistant Demo",
+      button: "Watch Demo",
+      note: "A demo of an AI assistant built into a business website.",
     },
     useCases: [
       { title: "New businesses", description: "A credible online presence from day one." },

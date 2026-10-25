@@ -35,8 +35,17 @@ export function WhatsAppIcon({ className = "size-5" }: IconProps) {
   );
 }
 
+export function YouTubeIcon({ className = "size-4" }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden fill="currentColor">
+      <path d="M21.6 7.2a2.6 2.6 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.6 2.6 0 0 0 2.4 7.2 27 27 0 0 0 2 12a27 27 0 0 0 .4 4.8 2.6 2.6 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.6 2.6 0 0 0 1.8-1.8A27 27 0 0 0 22 12a27 27 0 0 0-.4-4.8ZM10 15V9l5.2 3-5.2 3Z" />
+    </svg>
+  );
+}
+
 export const socialIconFor = {
   facebook: FacebookIcon,
   instagram: InstagramIcon,
+  youtube: YouTubeIcon,
   linkedin: LinkedInIcon,
 } as const;

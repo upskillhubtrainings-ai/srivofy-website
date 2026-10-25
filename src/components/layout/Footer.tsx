@@ -1,12 +1,10 @@
 import Link from "next/link";
 import { Globe, Mail, Phone } from "lucide-react";
-import { mailHref, siteConfig, telHref, websiteLabel } from "@/config/site";
+import { mailHref, siteConfig, socialProfiles, telHref, websiteLabel } from "@/config/site";
 import { serviceHref, services } from "@/config/services";
 import { CurrentYear } from "../ui/CurrentYear";
 import { Logo } from "../ui/Logo";
 import { socialIconFor } from "./BrandIcons";
-
-const socialLabels = { facebook: "Facebook", instagram: "Instagram", linkedin: "LinkedIn" } as const;
 
 const companyLinks = [
   { label: "Our Approach", href: "/#approach" },
@@ -19,7 +17,6 @@ const companyLinks = [
 const linkCls = "inline-flex min-h-9 items-center text-[15px] text-on-navy-muted transition-colors hover:text-white";
 
 export function Footer() {
-  const socials = Object.entries(siteConfig.socialLinks) as [keyof typeof socialLabels, string][];
   return (
     <footer className="on-navy bg-navy text-on-navy">
       <div className="container-page grid grid-cols-2 gap-x-6 gap-y-12 py-16 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr] lg:py-20">
@@ -30,7 +27,7 @@ export function Footer() {
             streamline operations, process documents and build better digital experiences.
           </p>
           <ul className="mt-6 flex gap-2" aria-label="Srivofy on social media">
-            {socials.map(([key, url]) => {
+            {socialProfiles.map(({ key, label, url }) => {
               const Icon = socialIconFor[key];
               return (
                 <li key={key}>
@@ -38,7 +35,7 @@ export function Footer() {
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`Srivofy on ${socialLabels[key]} (opens in a new tab)`}
+                    aria-label={`Srivofy on ${label} (opens in a new tab)`}
                     className="grid size-10 place-items-center rounded-md border border-navy-line text-on-navy-muted transition-colors hover:border-white/40 hover:text-white"
                   >
                     <Icon className="size-4" />

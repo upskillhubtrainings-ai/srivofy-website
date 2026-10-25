@@ -4,7 +4,7 @@ import { ContactForm } from "@/components/contact/ContactForm";
 import { socialIconFor } from "@/components/layout/BrandIcons";
 import { PageHero } from "@/components/shared/PageHero";
 import { Section } from "@/components/ui/Section";
-import { mailHref, siteConfig, telHref, websiteLabel, whatsappHref } from "@/config/site";
+import { mailHref, siteConfig, socialProfiles, telHref, websiteLabel, whatsappHref } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -18,11 +18,8 @@ const steps = [
   { title: "Clear recommendation", text: "Where automation helps, what it involves and what to do first." },
 ];
 
-const socialLabels = { facebook: "Facebook", instagram: "Instagram", linkedin: "LinkedIn" } as const;
-
 export default function ContactPage() {
   const wa = whatsappHref();
-  const socials = Object.entries(siteConfig.socialLinks) as [keyof typeof socialLabels, string][];
   const row = "flex min-h-12 items-center gap-3 text-[16px] text-navy hover:text-blue";
   return (
     <>
@@ -58,11 +55,11 @@ export default function ContactPage() {
                 </li>
               </ul>
               <ul className="mt-6 flex gap-2" aria-label="Srivofy on social media">
-                {socials.map(([k, url]) => {
-                  const Icon = socialIconFor[k];
+                {socialProfiles.map(({ key, label, url }) => {
+                  const Icon = socialIconFor[key];
                   return (
-                    <li key={k}>
-                      <a href={url} target="_blank" rel="noopener noreferrer" aria-label={`Srivofy on ${socialLabels[k]} (opens in a new tab)`}
+                    <li key={key}>
+                      <a href={url} target="_blank" rel="noopener noreferrer" aria-label={`Srivofy on ${label} (opens in a new tab)`}
                         className="grid size-11 place-items-center rounded-md border border-line bg-white text-navy hover:border-navy">
                         <Icon className="size-4" />
                       </a>

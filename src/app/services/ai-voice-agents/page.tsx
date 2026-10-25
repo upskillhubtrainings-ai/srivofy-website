@@ -118,6 +118,7 @@ export default function AiVoiceAgentsPage() {
       <DemoSection
         service={service}
         intro="A demonstration interface with an illustrative waveform, call status and sample transcript. It is not connected to a live phone line."
+        videoIntro="Hear an AI calling agent handle a call — greeting the caller, answering questions and capturing the details your team needs."
         preview={<VoiceConsole />}
       />
 

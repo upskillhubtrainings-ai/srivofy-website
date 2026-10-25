@@ -59,6 +59,7 @@ export default function WebsiteDevelopmentPage() {
       <DemoSection
         service={service}
         intro="Completed projects will be showcased here with desktop and mobile previews once they are published."
+        videoIntro="See an AI assistant on a website — answering visitor questions, guiding them to the right service and capturing enquiries."
         preview={<BrowserMockups placeholder />}
       />
 

@@ -57,12 +57,15 @@ demoLinks: {
 },
 ```
 
-Empty values show **"Demo coming soon"** with a disabled button — never a broken link.
+**YouTube links play right on the service page** (the player loads only when a visitor clicks
+play); other links open in a new tab. Empty values show **"Demo coming soon"** with a disabled
+button — never a broken link. Currently set: Social Media, AI Voice Agents, and Website
+Development (the website AI assistant video).
 
 ### Social links
 
-`socialLinks.facebook` and `socialLinks.linkedin` are platform defaults (placeholders). Replace
-them with Srivofy's real page URLs. Instagram is already set to `srivofyaiagency`.
+`socialLinks` holds Facebook, Instagram, YouTube and LinkedIn. Any empty value hides that icon in
+the top bar, footer and Contact page. LinkedIn is empty until a company page exists.
 
 ### Consultation booking
 

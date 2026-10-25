@@ -33,12 +33,13 @@ export const siteConfig = {
   /** Shown as written; the tel: link strips spaces and dashes automatically. */
   phone: "+91-7207382886",
 
+  /** Social profiles. An empty value hides that icon everywhere on the site. */
   socialLinks: {
-    // TODO: replace with Srivofy's Facebook page URL (currently the platform default).
-    facebook: "https://www.facebook.com/",
+    facebook: "https://www.facebook.com/Srivofyaiagency",
     instagram: "https://www.instagram.com/srivofyaiagency/",
-    // TODO: replace with Srivofy's LinkedIn company page URL (currently the platform default).
-    linkedin: "https://www.linkedin.com/",
+    youtube: "https://www.youtube.com/@SrivofyAIAgency",
+    // TODO: paste Srivofy's LinkedIn company page URL here to show the LinkedIn icon.
+    linkedin: "",
   },
 
   /**
@@ -49,14 +50,16 @@ export const siteConfig = {
   portfolioEnabled: false,
 
   /**
-   * External demo links, one per service. Paste a full https:// URL
-   * (e.g. a YouTube/Loom video or a live demo). Empty = "Demo coming soon".
+   * Demo links, one per service. Paste a full https:// URL.
+   * YouTube links play right on the service page; other links open in a new tab.
+   * Empty = "Demo coming soon".
    */
   demoLinks: {
-    socialMedia: "",
-    voiceAgent: "",
+    socialMedia: "https://youtu.be/QvM_oxRVT5A",
+    voiceAgent: "https://youtu.be/uxDK6EV_fRk",
     whatsappAgent: "",
-    websiteDevelopment: "",
+    /** Website AI assistant demo, shown on the Website Development page. */
+    websiteDevelopment: "https://youtu.be/21rXNgy77xg",
     documentProcessing: "",
   },
 
@@ -94,6 +97,27 @@ export type DemoKey = keyof typeof siteConfig.demoLinks;
 /** True only for a real http(s) URL — empty or malformed values count as "not set". */
 export function isConfiguredUrl(url: string | undefined | null): url is string {
   return !!url && /^https?:\/\/\S+$/i.test(url.trim());
+}
+
+export type SocialKey = keyof typeof siteConfig.socialLinks;
+
+const socialLabels: Record<SocialKey, string> = {
+  facebook: "Facebook",
+  instagram: "Instagram",
+  youtube: "YouTube",
+  linkedin: "LinkedIn",
+};
+
+/** Social profiles that have a real URL, in display order. */
+export const socialProfiles = (Object.keys(siteConfig.socialLinks) as SocialKey[])
+  .filter((key) => isConfiguredUrl(siteConfig.socialLinks[key]))
+  .map((key) => ({ key, label: socialLabels[key], url: siteConfig.socialLinks[key] as string }));
+
+/** YouTube video id from a youtu.be / watch / shorts / embed URL, or null. */
+export function youtubeId(url: string | undefined | null): string | null {
+  if (!isConfiguredUrl(url)) return null;
+  const m = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:.*&)?v=|shorts\/|embed\/|live\/))([\w-]{11})/i);
+  return m ? m[1] : null;
 }
 
 export const telHref = `tel:${siteConfig.phone.replace(/[^\d+]/g, "")}`;
