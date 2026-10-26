@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { ArrowRight, PlayCircle } from "lucide-react";
+import { ArrowRight, Mic, PlayCircle } from "lucide-react";
 import type { Metadata } from "next";
 import { serviceHref, services, type Service } from "@/config/services";
-import { consultationHref, isConfiguredUrl, siteConfig, youtubeId } from "@/config/site";
+import { consultationHref, isConfiguredUrl, liveDemoUrl, siteConfig, youtubeEmbedSrc, youtubeId } from "@/config/site";
 import { buttonClasses, ButtonLink } from "../ui/Button";
 import { DemoLink } from "../ui/DemoLink";
-import { VideoModalButton } from "../ui/VideoModalButton";
+import { EmbedModalButton } from "../ui/EmbedModalButton";
 import { PauseOffscreen, Reveal } from "../ui/Reveal";
 import { Eyebrow, Section, SectionHeader } from "../ui/Section";
 import { WorkflowDiagram } from "../visuals/WorkflowDiagram";
@@ -23,8 +23,9 @@ export function serviceMetadata(s: Service): Metadata {
 
 /** Service page hero: text left, the service's own visual right. */
 export function ServiceHero({ service, visual }: { service: Service; visual: React.ReactNode }) {
-  // A YouTube demo plays in a popup; another demo link opens in a new tab;
-  // with no link the button scrolls to the demo section.
+  // Second button, in order of preference: live demo (popup), YouTube demo
+  // (popup), other demo link (new tab), or scroll to the demo section.
+  const liveUrl = liveDemoUrl(service.demo.key);
   const demoUrl = siteConfig.demoLinks[service.demo.key];
   const hasDemo = isConfiguredUrl(demoUrl);
   const videoId = youtubeId(demoUrl);
@@ -49,11 +50,16 @@ export function ServiceHero({ service, visual }: { service: Service; visual: Rea
               <ButtonLink href={consultationHref} size="lg" arrow>
                 Request a Consultation
               </ButtonLink>
-              {videoId ? (
-                <VideoModalButton url={demoUrl} videoId={videoId} title={service.demo.label} className={buttonClasses("secondary", "lg")}>
+              {liveUrl ? (
+                <EmbedModalButton url={liveUrl} src={liveUrl} kind="agent" title={`Live demo — ${service.name}`} className={buttonClasses("secondary", "lg")}>
+                  <Mic aria-hidden className="size-[18px]" />
+                  Try Live Demo
+                </EmbedModalButton>
+              ) : videoId ? (
+                <EmbedModalButton url={demoUrl} src={youtubeEmbedSrc(videoId)} title={service.demo.label} className={buttonClasses("secondary", "lg")}>
                   <PlayCircle aria-hidden className="size-[18px]" />
                   Watch Demo
-                </VideoModalButton>
+                </EmbedModalButton>
               ) : (
                 <ButtonLink href={hasDemo ? demoUrl : "#demo"} variant="secondary" size="lg" arrow={hasDemo}>
                   {hasDemo ? "Watch Demo" : "See the demo"}
@@ -139,6 +145,7 @@ export function DemoSection({
   intro?: string;
   extra?: React.ReactNode;
 }) {
+  const liveUrl = liveDemoUrl(service.demo.key);
   return (
     <section id="demo" aria-labelledby="demo-title" className="scroll-mt-24 border-y border-line bg-paper py-20 sm:py-24">
       <div className="container-page">
@@ -151,8 +158,25 @@ export function DemoSection({
         <PauseOffscreen className="mt-12">{preview}</PauseOffscreen>
         {extra}
         <div className="mt-8 flex flex-col gap-4 border-t border-line pt-8 lg:flex-row lg:items-center lg:justify-between">
-          <p className="max-w-xl text-[14px] text-muted">{service.demo.note}</p>
-          <DemoLink demoKey={service.demo.key} label={service.demo.button} title={service.demo.label} />
+          {liveUrl ? (
+            <>
+              <p className="max-w-xl text-[14px] text-muted">
+                Talk to our live AI voice agent right here in your browser, or watch the recorded demo.
+              </p>
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <EmbedModalButton url={liveUrl} src={liveUrl} kind="agent" title={`Live demo — ${service.name}`} className={buttonClasses("primary", "md")}>
+                  <Mic aria-hidden className="size-4" />
+                  Try Live Demo
+                </EmbedModalButton>
+                <DemoLink demoKey={service.demo.key} label="Watch Demo Video" title={service.demo.label} secondary />
+              </div>
+            </>
+          ) : (
+            <>
+              <p className="max-w-xl text-[14px] text-muted">{service.demo.note}</p>
+              <DemoLink demoKey={service.demo.key} label={service.demo.button} title={service.demo.label} />
+            </>
+          )}
         </div>
       </div>
     </section>
