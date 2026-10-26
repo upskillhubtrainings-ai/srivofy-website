@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { Clock3, ExternalLink, PlayCircle } from "lucide-react";
-import { isConfiguredUrl, siteConfig, youtubeEmbedSrc, youtubeId, type DemoKey } from "@/config/site";
+import { isConfiguredUrl, siteConfig, youtubeId, type DemoKey } from "@/config/site";
 import { buttonClasses } from "./Button";
-import { EmbedModalButton } from "./EmbedModalButton";
+import { VideoModalButton } from "./VideoModalButton";
 
 /**
  * The demo button for a service. Reads its URL from siteConfig.demoLinks —
@@ -15,30 +15,22 @@ export function DemoLink({
   label,
   title,
   onNavy = false,
-  secondary = false,
 }: {
   demoKey: DemoKey;
   label: string;
   /** Heading shown above the video in the popup. */
   title?: string;
   onNavy?: boolean;
-  /** Outline style, for when a "Try Live Demo" button is the main action. */
-  secondary?: boolean;
 }) {
   const url = siteConfig.demoLinks[demoKey];
   const videoId = youtubeId(url);
 
   if (isConfiguredUrl(url) && videoId) {
     return (
-      <EmbedModalButton
-        url={url}
-        src={youtubeEmbedSrc(videoId)}
-        title={title ?? label}
-        className={buttonClasses(secondary ? "secondary" : onNavy ? "light" : "primary", "md")}
-      >
+      <VideoModalButton url={url} videoId={videoId} title={title ?? label} className={buttonClasses(onNavy ? "light" : "primary", "md")}>
         <PlayCircle aria-hidden className="size-4" />
         {label}
-      </EmbedModalButton>
+      </VideoModalButton>
     );
   }
 

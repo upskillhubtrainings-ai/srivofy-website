@@ -63,17 +63,6 @@ export const siteConfig = {
   },
 
   /**
-   * Live, interactive demos that open in a popup on the service page
-   * (shown as a "Try Live Demo" button next to the demo video).
-   * Paste the agent's shareable link. Empty = no live-demo button.
-   * The Retell link is a public share link — it's meant to be shared.
-   */
-  liveDemos: {
-    voiceAgent:
-      "https://agent.retellai.com/orb/agent_cd135b6ecca6e3038566f21e8a?token=c38eb06f1d731c50d345cb10b31ae06d",
-  } as Partial<Record<"socialMedia" | "voiceAgent" | "whatsappAgent" | "websiteDevelopment" | "documentProcessing", string>>,
-
-  /**
    * Where "Request a Consultation" buttons go. Paste a booking link
    * (Calendly, Cal.com, Google Calendar booking page...) to use it;
    * while empty, the buttons open the Contact page.
@@ -128,15 +117,6 @@ export function youtubeId(url: string | undefined | null): string | null {
   if (!isConfiguredUrl(url)) return null;
   const m = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:.*&)?v=|shorts\/|embed\/|live\/))([\w-]{11})/i);
   return m ? m[1] : null;
-}
-
-/** Privacy-friendly YouTube player address for a video id. */
-export const youtubeEmbedSrc = (id: string) => `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
-
-/** Live-demo link for a service, or null when none is configured. */
-export function liveDemoUrl(key: DemoKey): string | null {
-  const url = siteConfig.liveDemos[key];
-  return isConfiguredUrl(url) ? url : null;
 }
 
 export const telHref = `tel:${siteConfig.phone.replace(/[^\d+]/g, "")}`;
