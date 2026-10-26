@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { AlertCircle, CheckCircle2, ChevronDown, Info, Loader2, Send } from "lucide-react";
 import { mailHref, siteConfig } from "@/config/site";
 import { serviceOptions } from "@/config/services";
@@ -39,6 +40,14 @@ const input =
 export function ContactForm() {
   const endpoint = siteConfig.contactFormEndpoint.trim();
   const [values, setValues] = useState<Fields>(empty);
+
+  // Pre-select the service when arriving from a link like /contact/?service=AI%20Voice%20Agents.
+  useEffect(() => {
+    const service = new URLSearchParams(window.location.search).get("service");
+    if (!service || !serviceOptions.includes(service)) return;
+    const frame = requestAnimationFrame(() => setValues((v) => ({ ...v, service })));
+    return () => cancelAnimationFrame(frame);
+  }, []);
   const [errors, setErrors] = useState<Errors>({});
   const [touched, setTouched] = useState<Partial<Record<keyof Fields, boolean>>>({});
   const [status, setStatus] = useState<Status>("idle");
@@ -186,7 +195,11 @@ export function ContactForm() {
 
       <div className="mt-7 flex flex-col-reverse gap-4 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-[13px] text-muted">
-          <span className="text-danger" aria-hidden>*</span> Required. Your details are used only to reply to your enquiry.
+          <span className="text-danger" aria-hidden>*</span> Required. Your details are used only to reply to your enquiry — see our{" "}
+          <Link href="/privacy-policy/" className="text-blue underline underline-offset-4 hover:text-blue-700">
+            Privacy Policy
+          </Link>
+          .
         </p>
         <button type="submit" disabled={status === "sending"}
           className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-blue px-6 text-[15px] font-medium text-white transition-colors hover:bg-blue-700 disabled:opacity-70">

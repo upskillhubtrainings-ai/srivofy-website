@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight, PlayCircle } from "lucide-react";
 import type { Metadata } from "next";
 import { serviceHref, services, type Service } from "@/config/services";
-import { consultationHref, isConfiguredUrl, siteConfig, youtubeId } from "@/config/site";
+import { consultationHref, isConfiguredUrl, isSitePath, siteConfig, youtubeId } from "@/config/site";
 import { buttonClasses, ButtonLink } from "../ui/Button";
 import { DemoLink } from "../ui/DemoLink";
 import { VideoModalButton } from "../ui/VideoModalButton";
@@ -27,6 +27,7 @@ export function ServiceHero({ service, visual }: { service: Service; visual: Rea
   // with no link the button scrolls to the demo section.
   const demoUrl = siteConfig.demoLinks[service.demo.key];
   const hasDemo = isConfiguredUrl(demoUrl);
+  const onSite = isSitePath(demoUrl); // e.g. the Contact form
   const videoId = youtubeId(demoUrl);
   return (
     <section aria-labelledby="service-title" className="border-b border-line bg-white">
@@ -55,8 +56,13 @@ export function ServiceHero({ service, visual }: { service: Service; visual: Rea
                   Watch Demo
                 </VideoModalButton>
               ) : (
-                <ButtonLink href={hasDemo ? demoUrl : "#demo"} variant="secondary" size="lg" arrow={hasDemo}>
-                  {hasDemo ? "Watch Demo" : "See the demo"}
+                <ButtonLink
+                  href={hasDemo || onSite ? demoUrl : "#demo"}
+                  variant="secondary"
+                  size="lg"
+                  arrow={hasDemo || onSite}
+                >
+                  {onSite ? "Request a Demo" : hasDemo ? "Watch Demo" : "See the demo"}
                 </ButtonLink>
               )}
             </div>
@@ -154,6 +160,53 @@ export function DemoSection({
           <p className="max-w-xl text-[14px] text-muted">{service.demo.note}</p>
           <DemoLink demoKey={service.demo.key} label={service.demo.button} title={service.demo.label} />
         </div>
+      </div>
+    </section>
+  );
+}
+
+/** Contact page with this service pre-selected in the form. */
+export const contactForService = (s: Service) => `/contact/?service=${encodeURIComponent(s.name)}`;
+
+/**
+ * Pricing box. Pricing is quoted per project, so the whole card links to the
+ * Contact form with this service already selected.
+ */
+export function PricingBox({ service }: { service: Service }) {
+  return (
+    <section aria-labelledby="pricing-title" className="bg-white py-16 sm:py-20">
+      <div className="container-page">
+        <Reveal>
+          <Link
+            href={contactForService(service)}
+            className="group grid gap-8 rounded-lg border border-line bg-paper p-7 transition-[border-color,box-shadow] duration-(--dur-base) hover:border-blue hover:shadow-[0_18px_40px_-24px_rgb(36_85_214/0.45)] sm:p-10 lg:grid-cols-[1.3fr_1fr] lg:items-center lg:gap-14"
+          >
+            <div>
+              <Eyebrow>Pricing</Eyebrow>
+              <h2 id="pricing-title" className="text-h2 mt-5 text-navy">
+                Pricing tailored to your business
+              </h2>
+              <p className="mt-4 max-w-2xl text-[16px] leading-relaxed text-muted">
+                {service.name} is scoped to your needs — volume, integrations and the level of support
+                you want. Tell us what you need and we&apos;ll send you a clear, no-obligation quote.
+              </p>
+            </div>
+            <div className="flex flex-col gap-4 lg:items-end">
+              <ul className="space-y-2 text-[15px] text-ink">
+                {["Clear, itemised quote", "No hidden charges", "Plans that grow with you"].map((t) => (
+                  <li key={t} className="flex items-center gap-2.5">
+                    <span aria-hidden className="size-1.5 rounded-full bg-blue" />
+                    {t}
+                  </li>
+                ))}
+              </ul>
+              <span className={buttonClasses("primary", "lg", "w-full sm:w-auto")}>
+                Get Pricing
+                <ArrowRight aria-hidden className="size-4 transition-transform duration-(--dur-base) group-hover:translate-x-0.5" />
+              </span>
+            </div>
+          </Link>
+        </Reveal>
       </div>
     </section>
   );

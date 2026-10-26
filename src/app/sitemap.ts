@@ -12,6 +12,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...services.map(serviceHref),
     "/about/",
     "/contact/",
+    "/privacy-policy/",
+    "/terms-and-conditions/",
     // Portfolio is listed only when enabled.
     ...(siteConfig.portfolioEnabled ? ["/portfolio/"] : []),
   ];

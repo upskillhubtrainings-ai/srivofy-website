@@ -50,12 +50,18 @@ export const siteConfig = {
   portfolioEnabled: false,
 
   /**
-   * Demo links, one per service. Paste a full https:// URL (e.g. a YouTube video).
-   * The service page's demo buttons open it in a new tab. Empty = "Demo coming soon".
+   * Demo links, one per service.
+   * - YouTube URL: the demo buttons play it in a popup on the page.
+   * - Other https:// URL: the demo buttons open it in a new tab.
+   * - A page on this site (starts with "/"): the buttons go there and read
+   *   "Request a Demo" — e.g. "/contact/?service=AI%20Voice%20Agents" opens the
+   *   Contact form with that service already selected.
+   * - Empty: "Demo coming soon".
    */
   demoLinks: {
     socialMedia: "https://youtu.be/QvM_oxRVT5A",
-    voiceAgent: "https://youtu.be/uxDK6EV_fRk",
+    // Video: "https://youtu.be/uxDK6EV_fRk" — replaced by the contact form for now.
+    voiceAgent: "/contact/?service=AI%20Voice%20Agents",
     whatsappAgent: "",
     /** Website AI assistant demo, shown on the Website Development page. */
     websiteDevelopment: "https://youtu.be/21rXNgy77xg",
@@ -94,6 +100,11 @@ export const siteConfig = {
 export type DemoKey = keyof typeof siteConfig.demoLinks;
 
 /** True only for a real http(s) URL — empty or malformed values count as "not set". */
+/** True for a link to a page on this site, e.g. "/contact/". */
+export function isSitePath(url: string | undefined | null): url is string {
+  return !!url && /^\/(?!\/)\S*$/.test(url.trim());
+}
+
 export function isConfiguredUrl(url: string | undefined | null): url is string {
   return !!url && /^https?:\/\/\S+$/i.test(url.trim());
 }

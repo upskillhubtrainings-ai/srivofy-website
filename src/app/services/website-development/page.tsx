@@ -2,6 +2,7 @@ import { Accessibility, Gauge, MonitorSmartphone, Search } from "lucide-react";
 import {
   CapabilityGrid,
   DemoSection,
+  PricingBox,
   RelatedServices,
   ServiceHero,
   serviceMetadata,
@@ -63,6 +64,7 @@ export default function WebsiteDevelopmentPage() {
       />
 
       <UseCaseList service={service} />
+      <PricingBox service={service} />
       <FaqList items={service.faqs} tone="paper" />
       <RelatedServices current={service.id} />
       <CtaBand headline={service.ctaHeadline} primary={service.ctaButton} />

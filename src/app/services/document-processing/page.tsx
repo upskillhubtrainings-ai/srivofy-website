@@ -2,6 +2,7 @@ import { AlertTriangle, ArrowRight, FileImage, FileText, KeyRound, ListChecks, R
 import { InvoiceDemo } from "@/components/documents/InvoiceDemo";
 import {
   CapabilityGrid,
+  PricingBox,
   RelatedServices,
   ServiceHero,
   serviceMetadata,
@@ -225,6 +226,7 @@ export default function DocumentProcessingPage() {
       </Section>
 
       <UseCaseList service={service} />
+      <PricingBox service={service} />
       <FaqList items={service.faqs} tone="paper" />
       <RelatedServices current={service.id} />
       <CtaBand headline={service.ctaHeadline} primary={service.ctaButton} />

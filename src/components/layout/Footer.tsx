@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Globe, Mail, Phone } from "lucide-react";
 import { mailHref, siteConfig, socialProfiles, telHref, websiteLabel } from "@/config/site";
 import { serviceHref, services } from "@/config/services";
+import { legalLinks } from "@/config/legal";
 import { CurrentYear } from "../ui/CurrentYear";
 import { Logo } from "../ui/Logo";
 import { socialIconFor } from "./BrandIcons";
@@ -91,10 +92,19 @@ export function Footer() {
       </div>
 
       <div className="border-t border-navy-line">
-        <div className="container-page flex flex-col gap-2 py-6 text-[13px] text-on-navy-muted sm:flex-row sm:items-center sm:justify-between">
+        <div className="container-page flex flex-col gap-3 py-6 text-[13px] text-on-navy-muted lg:flex-row lg:items-center lg:justify-between">
           <p>
             © <CurrentYear /> {siteConfig.name}. All rights reserved.
           </p>
+          <ul className="flex flex-wrap gap-x-6 gap-y-1" aria-label="Legal">
+            {legalLinks.map((l) => (
+              <li key={l.href}>
+                <Link href={l.href} className="inline-flex min-h-8 items-center transition-colors hover:text-white">
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
           <p>AI features shown on this site are illustrative unless stated otherwise.</p>
         </div>
       </div>

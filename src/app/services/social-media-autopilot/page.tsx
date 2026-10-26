@@ -2,6 +2,7 @@ import { Check } from "lucide-react";
 import {
   CapabilityGrid,
   DemoSection,
+  PricingBox,
   RelatedServices,
   ServiceHero,
   serviceMetadata,
@@ -91,6 +92,7 @@ export default function SocialMediaAutopilotPage() {
       />
 
       <UseCaseList service={service} />
+      <PricingBox service={service} />
       <FaqList items={service.faqs} tone="paper" />
       <RelatedServices current={service.id} />
       <CtaBand headline={service.ctaHeadline} primary={service.ctaButton} />

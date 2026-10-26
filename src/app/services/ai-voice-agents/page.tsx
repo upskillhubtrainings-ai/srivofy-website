@@ -2,6 +2,7 @@ import { CalendarClock, ClipboardList, Headphones, UserRoundCheck } from "lucide
 import {
   CapabilityGrid,
   DemoSection,
+  PricingBox,
   RelatedServices,
   ServiceHero,
   serviceMetadata,
@@ -122,6 +123,7 @@ export default function AiVoiceAgentsPage() {
       />
 
       <UseCaseList service={service} />
+      <PricingBox service={service} />
       <FaqList items={service.faqs} tone="paper" />
       <RelatedServices current={service.id} />
       <CtaBand headline={service.ctaHeadline} primary={service.ctaButton} />

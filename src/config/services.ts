@@ -118,8 +118,8 @@ export const services: Service[] = [
     demo: {
       key: "voiceAgent",
       label: "AI Voice Agent Demo",
-      button: "Watch Voice Demo",
-      note: "Demonstration interface with a sample transcript. No live voice integration is connected on this website.",
+      button: "Request a Demo",
+      note: "Illustrative call interface with a sample transcript. Request a demo and we'll walk you through an AI voice agent built for your business.",
     },
     useCases: [
       { title: "Busy front desks", description: "Clinics, salons and offices where staff cannot always answer the phone." },

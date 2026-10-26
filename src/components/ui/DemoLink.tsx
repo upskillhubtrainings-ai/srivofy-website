@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Clock3, ExternalLink, PlayCircle } from "lucide-react";
-import { isConfiguredUrl, siteConfig, youtubeId, type DemoKey } from "@/config/site";
-import { buttonClasses } from "./Button";
+import { isConfiguredUrl, isSitePath, siteConfig, youtubeId, type DemoKey } from "@/config/site";
+import { buttonClasses, ButtonLink } from "./Button";
 import { VideoModalButton } from "./VideoModalButton";
 
 /**
@@ -24,6 +24,15 @@ export function DemoLink({
 }) {
   const url = siteConfig.demoLinks[demoKey];
   const videoId = youtubeId(url);
+
+  // A page on this site (e.g. the Contact form): a normal internal link.
+  if (isSitePath(url)) {
+    return (
+      <ButtonLink href={url} variant={onNavy ? "light" : "primary"} arrow>
+        Request a Demo
+      </ButtonLink>
+    );
+  }
 
   if (isConfiguredUrl(url) && videoId) {
     return (
