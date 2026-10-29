@@ -45,6 +45,10 @@ const sections: LegalSection[] = [
           when pages are requested — such as your IP address, browser type and the time of the
           request — to keep the website secure and running. We do not use this to identify you.
         </p>
+        <p>
+          We also collect usage information through Google Analytics and the Meta Pixel, as explained
+          in &ldquo;Cookies and tracking&rdquo; below.
+        </p>
       </>
     ),
   },
@@ -52,15 +56,41 @@ const sections: LegalSection[] = [
     heading: "Cookies and tracking",
     body: (
       <>
+        <p>We use two third-party tools that set cookies and collect information about your visit:</p>
+        <ul>
+          <li>
+            <strong>Google Analytics</strong> (Google) — helps us understand how visitors use the
+            website, such as which pages are viewed, how long visits last, the type of device and
+            browser, approximate location (city/country) and how you arrived at the site.
+          </li>
+          <li>
+            <strong>Meta Pixel</strong> (Meta, the company behind Facebook and Instagram) — helps us
+            measure the results of our advertising and show relevant ads to people who have visited
+            our website.
+          </li>
+        </ul>
         <p>
-          This website does not use advertising cookies, analytics trackers or tracking pixels, and
-          we do not set cookies of our own.
+          These tools record page views and, when you send an enquiry, that an enquiry was made and
+          which service it was about. They do not receive the contents of the contact form, such as
+          your name, email or message. Google and Meta process this information under their own
+          privacy policies.
         </p>
         <p>
-          Some features are provided by other companies and only load when you use them: demo videos
-          are played from YouTube (in privacy-enhanced mode) when you press play, and the WhatsApp
-          button opens WhatsApp. When you use these, those companies may collect information under
-          their own privacy policies.
+          You can block or delete cookies in your browser settings, opt out of Google Analytics with
+          Google&apos;s{" "}
+          <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">
+            browser add-on
+          </a>
+          , and manage how Meta uses information for ads in your{" "}
+          <a href="https://www.facebook.com/adpreferences" target="_blank" rel="noopener noreferrer">
+            Meta ad preferences
+          </a>
+          .
+        </p>
+        <p>
+          Some other features only load when you use them: demo videos are played from YouTube (in
+          privacy-enhanced mode) when you press play, and the WhatsApp button opens WhatsApp. When you
+          use these, those companies may collect information under their own privacy policies.
         </p>
       </>
     ),
@@ -71,6 +101,8 @@ const sections: LegalSection[] = [
       <ul>
         <li>To reply to your enquiry and arrange a consultation or demo.</li>
         <li>To prepare quotes and, if you become a client, to deliver our services.</li>
+        <li>To understand how the website is used and improve it (Google Analytics).</li>
+        <li>To measure and improve our advertising (Meta Pixel).</li>
         <li>To keep the website secure and prevent misuse, such as spam.</li>
         <li>To meet our legal and accounting obligations.</li>
       </ul>
@@ -95,6 +127,10 @@ const sections: LegalSection[] = [
           We do not sell or rent your personal information. We share it only with service providers
           that help us run our business — such as our website hosting and email provider — who may
           process it on our behalf, and only as needed to provide their services.
+        </p>
+        <p>
+          Website usage information is collected by Google (Google Analytics) and Meta (Meta Pixel)
+          as described in &ldquo;Cookies and tracking&rdquo;.
         </p>
         <p>We may also disclose information where the law requires it.</p>
       </>

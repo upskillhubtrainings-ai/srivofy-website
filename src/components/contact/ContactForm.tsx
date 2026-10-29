@@ -5,6 +5,7 @@ import Link from "next/link";
 import { AlertCircle, CheckCircle2, ChevronDown, Info, Loader2, Send } from "lucide-react";
 import { mailHref, siteConfig } from "@/config/site";
 import { serviceOptions } from "@/config/services";
+import { trackLead } from "../layout/Analytics";
 
 type Fields = {
   name: string;
@@ -93,6 +94,7 @@ export function ContactForm() {
         setServerMsg(data?.error ?? "");
         throw new Error("send failed");
       }
+      trackLead(values.service);
       setStatus("sent");
       setValues(empty);
       setTouched({});

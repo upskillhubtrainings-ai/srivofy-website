@@ -5,7 +5,7 @@
 export const legalConfig = {
   /** Business name as it appears in the legal pages. */
   businessName: "Srivofy",
-  lastUpdated: "26 October 2026",
+  lastUpdated: "29 October 2026",
   governingLaw: "the laws of India",
   courts: "the courts at Hyderabad, Telangana, India",
 };

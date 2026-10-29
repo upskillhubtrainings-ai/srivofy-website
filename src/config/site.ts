@@ -93,6 +93,17 @@ export const siteConfig = {
    * Hostinger. Set to "" to show the form as "not connected yet".
    */
   contactFormEndpoint: "/api/contact.php",
+
+  /**
+   * Tracking. Leave an ID as "" to switch that tool off.
+   * - googleAnalyticsId: Google Analytics 4 measurement ID ("G-…").
+   * - metaPixelId: Meta (Facebook/Instagram) Pixel ID.
+   * If you change what is tracked, update the Privacy Policy too.
+   */
+  analytics: {
+    googleAnalyticsId: "G-FSE4MJQ048",
+    metaPixelId: "1848434816576280",
+  },
 } as const;
 
 /* ───────────── helpers (no need to edit below this line) ───────────── */
