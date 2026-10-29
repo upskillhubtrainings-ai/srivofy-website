@@ -7,8 +7,8 @@ import { Section } from "@/components/ui/Section";
 import { mailHref, siteConfig, socialProfiles, telHref, websiteLabel, whatsappHref } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Contact",
-  description: "Contact Srivofy to discuss AI automation for your business: voice agents, WhatsApp AI, document processing, social media and websites.",
+  title: "Contact Us: AI Automation Agency in Hyderabad",
+  description: "Contact Srivofy, an AI automation agency in Hyderabad, to discuss AI voice agents, WhatsApp chatbots, document processing, social media automation and websites.",
   alternates: { canonical: "/contact/" },
 };
 

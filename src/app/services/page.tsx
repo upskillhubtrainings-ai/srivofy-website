@@ -9,9 +9,9 @@ import { WorkflowDiagram } from "@/components/visuals/WorkflowDiagram";
 import { serviceHref, services } from "@/config/services";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: "AI Automation Services for Business",
   description:
-    "Srivofy services: Social Media Autopilot, AI Voice Agents, AI + WhatsApp Agent, Website Development and Document Processing.",
+    "AI automation services from Srivofy, Hyderabad: AI voice agents, WhatsApp AI chatbots, social media automation, website development and AI document processing.",
   alternates: { canonical: "/services/" },
 };
 

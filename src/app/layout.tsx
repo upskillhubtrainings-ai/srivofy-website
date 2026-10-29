@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { UtilityBar } from "@/components/layout/UtilityBar";
 import { WhatsAppLauncher } from "@/components/layout/WhatsAppLauncher";
+import { businessSchema, JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/config/site";
 import "./globals.css";
 
@@ -22,13 +23,14 @@ const plexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
+const homeTitle = "Srivofy | AI Automation Agency in Hyderabad, India";
 const description =
-  "Srivofy helps businesses automate customer conversations, streamline operations, process documents and build better digital experiences with practical AI.";
+  "Srivofy is an AI automation agency in Hyderabad, India, building AI voice agents, WhatsApp chatbots, social media automation, websites and document processing.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.canonicalUrl),
   title: {
-    default: "Srivofy | AI Automation for Business",
+    default: homeTitle,
     template: "%s | Srivofy",
   },
   description,
@@ -37,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: siteConfig.name,
-    title: "Srivofy | AI Automation for Business",
+    title: homeTitle,
     description,
     url: "/",
     locale: "en_IN",
@@ -70,6 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <WhatsAppLauncher />
         <Analytics />
+        <JsonLd data={businessSchema()} />
       </body>
     </html>
   );

@@ -86,8 +86,8 @@ export const services: Service[] = [
     ],
     ctaHeadline: "Make your content calendar run on a clear workflow.",
     ctaButton: "Discuss Social Media Automation",
-    metaTitle: "Social Media Autopilot",
-    metaDescription: "AI-assisted social media workflows from Srivofy: content creation, captions, calendars, approval steps and scheduling, with your team in control.",
+    metaTitle: "Social Media Automation Services in India",
+    metaDescription: "AI social media automation from Srivofy, Hyderabad: AI content creation, captions, content calendars, approvals and post scheduling for businesses across India.",
   },
   {
     id: "voice",
@@ -134,8 +134,8 @@ export const services: Service[] = [
     ],
     ctaHeadline: "Find out where a voice agent fits your call flow.",
     ctaButton: "Discuss AI Voice Agents",
-    metaTitle: "AI Voice Agents",
-    metaDescription: "Srivofy AI voice agents: virtual receptionist, appointment intake and back-office support with call routing, summaries and human escalation.",
+    metaTitle: "AI Voice Agent & AI Receptionist Services in India",
+    metaDescription: "AI voice agents and AI receptionists from Srivofy, Hyderabad: answer every call 24/7, take appointment requests, route calls and hand off to your team.",
   },
   {
     id: "whatsapp",
@@ -185,8 +185,8 @@ export const services: Service[] = [
     ],
     ctaHeadline: "Organise your WhatsApp enquiries into a clear workflow.",
     ctaButton: "Discuss WhatsApp Automation",
-    metaTitle: "AI + WhatsApp Agent",
-    metaDescription: "Srivofy WhatsApp AI agents: automated replies, approved FAQs, lead capture and qualification, appointment intake and human handoff.",
+    metaTitle: "WhatsApp AI Chatbot & Automation for Business",
+    metaDescription: "WhatsApp AI chatbot for business from Srivofy, Hyderabad: instant automated replies, lead capture and qualification, appointment intake and human handoff.",
   },
   {
     id: "website",
@@ -235,8 +235,8 @@ export const services: Service[] = [
     ],
     ctaHeadline: "Plan a website that works as hard as your team.",
     ctaButton: "Discuss Your Website",
-    metaTitle: "Website Development",
-    metaDescription: "Srivofy builds responsive business websites and landing pages with strong performance, lead capture and optional AI integrations.",
+    metaTitle: "Website Development Company in Hyderabad",
+    metaDescription: "Website development in Hyderabad by Srivofy: fast, mobile-friendly business websites and landing pages with SEO, lead capture and built-in AI assistants.",
   },
   {
     id: "documents",
@@ -289,8 +289,8 @@ export const services: Service[] = [
     ],
     ctaHeadline: "Turn invoice processing into a structured workflow.",
     ctaButton: "Discuss Document Automation",
-    metaTitle: "Document Processing",
-    metaDescription: "Srivofy document processing: extract data from invoice PDFs and images with OCR, validate it, review exceptions and store records in a common database.",
+    metaTitle: "AI Document Processing & Invoice OCR Automation",
+    metaDescription: "AI document processing from Srivofy: extract data from invoice PDFs, scans and photos with OCR, validate it and save it to your database or accounting system.",
   },
 ];
 

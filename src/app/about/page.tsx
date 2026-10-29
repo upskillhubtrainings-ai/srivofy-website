@@ -7,9 +7,9 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Section, SectionHeader } from "@/components/ui/Section";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Us: AI Automation Agency in Hyderabad",
   description:
-    "Srivofy is an AI automation agency focused on practical AI: understanding business problems, designing workflows, connecting systems and keeping human oversight.",
+    "Srivofy is an AI automation agency in Hyderabad, India, building practical AI for businesses: voice agents, WhatsApp chatbots, workflows and websites.",
   alternates: { canonical: "/about/" },
 };
 

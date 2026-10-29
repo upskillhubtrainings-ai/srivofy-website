@@ -3,6 +3,7 @@ import { ArrowRight, PlayCircle } from "lucide-react";
 import type { Metadata } from "next";
 import { serviceHref, services, type Service } from "@/config/services";
 import { consultationHref, isConfiguredUrl, isSitePath, siteConfig, youtubeId } from "@/config/site";
+import { JsonLd, serviceSchema } from "../seo/JsonLd";
 import { buttonClasses, ButtonLink } from "../ui/Button";
 import { DemoLink } from "../ui/DemoLink";
 import { VideoModalButton } from "../ui/VideoModalButton";
@@ -72,6 +73,8 @@ export function ServiceHero({ service, visual }: { service: Service; visual: Rea
           </PauseOffscreen>
         </div>
       </div>
+      {/* Every service page has a hero, so its structured data lives here. */}
+      <JsonLd data={serviceSchema(service)} />
     </section>
   );
 }
