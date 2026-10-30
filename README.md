@@ -71,13 +71,11 @@ the top bar, footer and Contact page. LinkedIn is empty until a company page exi
 Set `consultationUrl` to a booking page (Calendly, Cal.com…). While empty, every
 "Request a Consultation" button opens the Contact page.
 
-### WhatsApp button
+### AI chat assistant and WhatsApp links
 
-- `whatsappNumber` — the floating button opens a WhatsApp chat with this number. Set to `""` to hide it.
-- `whatsappAssistantUrl` — if you later connect a WhatsApp AI assistant or another approved chat link,
-  paste its URL here; the button will open it and read "Chat with our AI assistant".
-- For an embedded AI chat widget, replace the link in `src/components/layout/WhatsAppLauncher.tsx`
-  with the provider's component. Keep any API keys on a server — never in this repository.
+- `chatAssistant` - the floating bottom-right chat, served by an n8n workflow (`src/components/layout/AiChatWidget.tsx`). Set `webhookUrl` to `"` to hide it. The n8n Chat Trigger's Allowed Origins must include the website address.
+- `whatsappNumber` - WhatsApp links on the Contact page open a chat with this number. Set to `"` to hide them.
+- `whatsappAssistantUrl` - if you later connect a WhatsApp AI assistant or another approved chat link, paste its URL here; those links will open it.
 
 ### Enable the Portfolio page
 

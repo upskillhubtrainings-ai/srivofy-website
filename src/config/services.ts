@@ -181,7 +181,7 @@ export const services: Service[] = [
       { q: "Do we need a WhatsApp Business account?", a: "Yes. Automated assistants run on the WhatsApp Business Platform, which has its own approval process and messaging policies. We guide you through setup." },
       { q: "Can our team still reply manually?", a: "Yes. Conversations can be handed to your team, who continue with the context the assistant collected." },
       { q: "Where do captured leads go?", a: "Wherever you need them — a CRM, spreadsheet or database — once that integration is configured and tested." },
-      { q: "Is the chat on this website a live agent?", a: "No. The conversation shown on this site is an example, not a connected WhatsApp agent." },
+      { q: "Is the conversation on this page a live agent?", a: "No. The conversation shown on this page is an example, not a connected WhatsApp agent. The chat assistant in the corner of the website is a live AI assistant." },
     ],
     ctaHeadline: "Organise your WhatsApp enquiries into a clear workflow.",
     ctaButton: "Discuss WhatsApp Automation",

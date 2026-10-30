@@ -39,6 +39,10 @@ const sections: LegalSection[] = [
             <strong>Email, phone and WhatsApp:</strong> the details you share when you contact us
             directly.
           </li>
+          <li>
+            <strong>Website chat assistant:</strong> the messages you type into the AI chat on this
+            website. Please don&apos;t share sensitive personal information in the chat.
+          </li>
         </ul>
         <p>
           Like most websites, our hosting provider automatically records basic technical information
@@ -89,7 +93,7 @@ const sections: LegalSection[] = [
         </p>
         <p>
           Some other features only load when you use them: demo videos are played from YouTube (in
-          privacy-enhanced mode) when you press play, and the WhatsApp button opens WhatsApp. When you
+          privacy-enhanced mode) when you press play, and WhatsApp links open WhatsApp. When you
           use these, those companies may collect information under their own privacy policies.
         </p>
       </>
@@ -100,6 +104,7 @@ const sections: LegalSection[] = [
     body: (
       <ul>
         <li>To reply to your enquiry and arrange a consultation or demo.</li>
+        <li>To answer your questions through the website chat assistant.</li>
         <li>To prepare quotes and, if you become a client, to deliver our services.</li>
         <li>To understand how the website is used and improve it (Google Analytics).</li>
         <li>To measure and improve our advertising (Meta Pixel).</li>
@@ -125,8 +130,9 @@ const sections: LegalSection[] = [
       <>
         <p>
           We do not sell or rent your personal information. We share it only with service providers
-          that help us run our business — such as our website hosting and email provider — who may
-          process it on our behalf, and only as needed to provide their services.
+          that help us run our business — such as our website hosting and email provider, and the
+          automation and AI services that power the chat assistant — who may process it on our
+          behalf, and only as needed to provide their services.
         </p>
         <p>
           Website usage information is collected by Google (Google Analytics) and Meta (Meta Pixel)

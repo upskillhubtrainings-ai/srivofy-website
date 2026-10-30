@@ -76,11 +76,27 @@ export const siteConfig = {
   consultationUrl: "",
 
   /**
-   * Floating WhatsApp button (bottom-right).
-   * - whatsappNumber: international format; leave "" to hide the button.
+   * Floating AI chat assistant (bottom-right), powered by an n8n workflow.
+   * Leave webhookUrl as "" to hide it. The n8n Chat Trigger's "Allowed Origins"
+   * must include this website's address.
+   */
+  chatAssistant: {
+    webhookUrl: "https://upskillhub.online/webhook/f46fe044-c147-4da5-8294-9b9d835a4f71/chat",
+    title: "Srivofy Assistant",
+    subtitle: "We reply instantly, 24/7.",
+    inputPlaceholder: "Type your question...",
+    initialMessages: [
+      "Hi! 👋 I am the Srivofy assistant.",
+      "Ask me about our services, request a demo, or get in touch.",
+    ],
+  },
+
+  /**
+   * WhatsApp links (Contact page).
+   * - whatsappNumber: international format; leave "" to hide the links.
    * - whatsappAssistantUrl: optional. If you later connect a WhatsApp AI
    *   assistant (or any approved chat link), paste its URL here and the
-   *   button will open it instead of a direct wa.me chat.
+   *   links will open it instead of a direct wa.me chat.
    * - whatsappMessage: pre-filled text for the direct chat.
    */
   whatsappNumber: "+91-7207382886",

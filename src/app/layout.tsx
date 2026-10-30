@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
+import { AiChatWidget } from "@/components/layout/AiChatWidget";
 import { Analytics } from "@/components/layout/Analytics";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { UtilityBar } from "@/components/layout/UtilityBar";
 import { WebMcpTools } from "@/components/layout/WebMcpTools";
-import { WhatsAppLauncher } from "@/components/layout/WhatsAppLauncher";
 import { businessSchema, JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/config/site";
 import "./globals.css";
@@ -71,7 +71,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <main id="main">{children}</main>
         <Footer />
-        <WhatsAppLauncher />
+        <AiChatWidget />
         <Analytics />
         <WebMcpTools />
         <JsonLd data={businessSchema()} />

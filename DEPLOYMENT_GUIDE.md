@@ -248,7 +248,7 @@ You can also upload with an SFTP client (FileZilla) using the credentials in hPa
 | Social icons | Top bar and footer — Facebook/LinkedIn still placeholders until replaced |
 | Email & phone links | Click them — mail app / dialer opens |
 | Demo placeholders | Each service page shows "Demo coming soon" until URLs are added |
-| WhatsApp button | Bottom-right; opens WhatsApp chat with +91-7207382886 |
+| AI chat assistant | Bottom-right; opens the n8n chat and replies to a test message |
 | Mobile navigation | Phone or narrow browser: menu opens, Services expands, links work |
 | Responsive layout | No sideways scrolling on phone, tablet, desktop |
 | Contact form | Send a test enquiry → it arrives at inquiry@srivofy.com (check spam once) |
