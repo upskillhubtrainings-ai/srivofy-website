@@ -76,6 +76,27 @@ export function businessSchema() {
   };
 }
 
+type Faq = { q: string; a: string };
+
+function faqPage(url: string, faqs: Faq[]) {
+  return {
+    "@type": "FAQPage",
+    "@id": `${url}#faq`,
+    url,
+    about: { "@id": businessId },
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+}
+
+/** A standalone FAQ page, such as /answers/. */
+export function faqSchema(path: string, faqs: Faq[]) {
+  return { "@context": "https://schema.org", ...faqPage(absolute(path), faqs) };
+}
+
 /** Per service page: the service, its FAQs and the breadcrumb trail. */
 export function serviceSchema(s: Service) {
   const url = absolute(serviceHref(s));
@@ -92,15 +113,7 @@ export function serviceSchema(s: Service) {
         provider: { "@id": businessId },
         areaServed: { "@type": "Country", name: "India" },
       },
-      {
-        "@type": "FAQPage",
-        "@id": `${url}#faq`,
-        mainEntity: s.faqs.map((f) => ({
-          "@type": "Question",
-          name: f.q,
-          acceptedAnswer: { "@type": "Answer", text: f.a },
-        })),
-      },
+      faqPage(url, s.faqs),
       {
         "@type": "BreadcrumbList",
         itemListElement: [
