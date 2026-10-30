@@ -279,3 +279,35 @@ p {
     stroke-dasharray: none;
   }
 }
+
+/* Srivo, the chat assistant's robot (AiChatWidget): a gentle float, with a wave every few seconds. */
+@keyframes srivo-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+@keyframes srivo-wave {
+  0%, 62%, 100% { transform: rotate(0deg); }
+  68%, 80% { transform: rotate(-20deg); }
+  74%, 86% { transform: rotate(14deg); }
+}
+@keyframes srivo-blink {
+  0%, 93%, 100% { transform: scaleY(1); }
+  96.5% { transform: scaleY(0.1); }
+}
+@keyframes srivo-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+@keyframes srivo-popup-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.92); }
+  to { opacity: 1; transform: none; }
+}
+.srivo-float { animation: srivo-float 3.2s ease-in-out infinite; }
+.srivo-arm { transform-origin: 50px 37px; animation: srivo-wave 5s ease-in-out infinite; }
+.srivo-eyes { transform-origin: 32px 28px; animation: srivo-blink 4.5s linear infinite; }
+.srivo-antenna { animation: srivo-glow 1.8s ease-in-out infinite; }
+.srivo-popup { transform-origin: bottom right; animation: srivo-popup-in 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .srivo-float, .srivo-arm, .srivo-eyes, .srivo-antenna, .srivo-popup { animation: none; }
+}

@@ -82,11 +82,11 @@ export const siteConfig = {
    */
   chatAssistant: {
     webhookUrl: "https://upskillhub.online/webhook/f46fe044-c147-4da5-8294-9b9d835a4f71/chat",
-    title: "Srivofy Assistant",
-    subtitle: "We reply instantly, 24/7.",
+    title: "Srivo",
+    subtitle: "Srivofy's AI assistant, here 24/7.",
     inputPlaceholder: "Type your question...",
     initialMessages: [
-      "Hi! 👋 I am the Srivofy assistant.",
+      "Hi! 👋 I'm Srivo, the Srivofy assistant.",
       "Ask me about our services, request a demo, or get in touch.",
     ],
   },
