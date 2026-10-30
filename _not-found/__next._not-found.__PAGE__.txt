@@ -1,0 +1,28 @@
+2:"$Sreact.fragment"
+3:"/_next/static/chunks/42onvq6nokjl2.js"
+4:I[39756,["$3"],"default"]
+5:I[37457,["$3"],"default"]
+a:"/_next/static/chunks/0cl_ws2w-opy5.js"
+b:"/_next/static/chunks/1m4u57umpxy4p.js"
+c:I[22016,["$a","$b"],""]
+d:I[97367,["$3"],"OutletBoundary"]
+e:"$Sreact.suspense"
+11:"ViewportBoundary"
+12:I[97367,["$3"],"$11"]
+13:"MetadataBoundary"
+14:I[97367,["$3"],"$13"]
+15:I[27201,["$3"],"IconMark"]
+7:X
+7:C
+8:X
+9:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$2","c",{"children":[["$","section",null,{"className":"bg-blueprint border-b border-line bg-paper","children":["$","div",null,{"className":"container-page flex min-h-[60vh] flex-col items-start justify-center py-24","children":[["$","p",null,{"className":"text-eyebrow text-blue","children":"Error 404"}],["$","h1",null,{"className":"text-display mt-5 max-w-3xl text-navy","children":"This page could not be found."}],["$","p",null,{"className":"mt-5 max-w-xl text-lg text-muted","children":"The page may have moved, or the address may be mistyped."}],["$","div",null,{"className":"mt-9 flex flex-col gap-3 sm:flex-row","children":[["$","$Lc",null,{"href":"/","className":"group/btn inline-flex items-center justify-center gap-2 rounded-md font-medium whitespace-nowrap transition-[background-color,border-color,color,box-shadow] duration-(--dur-base) ease-(--ease-out) select-none bg-blue text-white hover:bg-blue-700 shadow-[0_1px_0_rgb(16_29_54/0.08)] h-12 px-6 text-[15px] ","children":["Back to home",null]}],["$","$Lc",null,{"href":"/services/","className":"group/btn inline-flex items-center justify-center gap-2 rounded-md font-medium whitespace-nowrap transition-[background-color,border-color,color,box-shadow] duration-(--dur-base) ease-(--ease-out) select-none border border-line-strong bg-white text-navy hover:border-navy h-12 px-6 text-[15px] ","children":["View services",null]}]]}]]}]}],null,["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]]}],"p":"$@10","v":null,"s":"$8"}}]]
+1:[["children",{"s":"/_not-found","h":64,"d":{"r":["$","$2","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}]}]]}],"p":"$@6","v":"$7","s":"$8"},"c":"$Q9"}]]
+0:{"t":{"t":{"s":"","h":16,"c":"$Q1"},"h":{"r":["$","$2","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L12",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#101d36"}]]}],["$","$L14",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$e",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Page not found | Srivofy"}],["$","meta","1",{"name":"description","content":"Srivofy is an AI automation agency in Hyderabad, India, building AI voice agents, WhatsApp chatbots, social media automation, websites and document processing."}],["$","meta","2",{"name":"application-name","content":"Srivofy"}],["$","meta","3",{"name":"robots","content":"noindex, nofollow"}],["$","link","4",{"rel":"canonical","href":"https://srivofy.com/"}],["$","meta","5",{"property":"og:title","content":"Srivofy | AI Automation Agency in Hyderabad, India"}],["$","meta","6",{"property":"og:description","content":"Srivofy is an AI automation agency in Hyderabad, India, building AI voice agents, WhatsApp chatbots, social media automation, websites and document processing."}],["$","meta","7",{"property":"og:url","content":"https://srivofy.com/"}],["$","meta","8",{"property":"og:site_name","content":"Srivofy"}],["$","meta","9",{"property":"og:locale","content":"en_IN"}],["$","meta","10",{"property":"og:image","content":"https://srivofy.com/opengraph-image?a393c03093ab699b"}],["$","meta","11",{"property":"og:image:type","content":"image/png"}],["$","meta","12",{"property":"og:image:width","content":"1200"}],["$","meta","13",{"property":"og:image:height","content":"630"}],["$","meta","14",{"property":"og:image:alt","content":"Srivofy — AI automation for business"}],["$","meta","15",{"property":"og:type","content":"website"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"Srivofy | AI Automation Agency in Hyderabad, India"}],["$","meta","18",{"name":"twitter:description","content":"Srivofy is an AI automation agency in Hyderabad, India, building AI voice agents, WhatsApp chatbots, social media automation, websites and document processing."}],["$","meta","19",{"name":"twitter:image","content":"https://srivofy.com/opengraph-image?a393c03093ab699b"}],["$","meta","20",{"name":"twitter:image:alt","content":"Srivofy — AI automation for business"}],["$","meta","21",{"name":"twitter:image:type","content":"image/png"}],["$","meta","22",{"name":"twitter:image:width","content":"1200"}],["$","meta","23",{"name":"twitter:image:height","content":"630"}],["$","link","24",{"rel":"icon","href":"/icon.svg?icon.0rx2jx_a5kv_4.svg","sizes":"any","type":"image/svg+xml"}],["$","$L15","25",{}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@16","v":null,"s":"$8"}},"a":"$@17","u":"$@18","b":"YpcxMHgqqNbNu4NBMXlme"}
+f:null
+18:true
+8:300
+8:C
+17:0
+6:"$undefined"
+16:"$undefined"
+10:"$undefined"

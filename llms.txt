@@ -1,0 +1,28 @@
+# Srivofy
+
+> Srivofy is an AI automation agency in Hyderabad, Telangana, India. It builds AI voice agents, WhatsApp AI chatbots, social media automation, business websites with AI assistants, and AI document processing for businesses across India, with human review built into every workflow.
+
+- Website: https://srivofy.com/
+- Email: inquiry@srivofy.com
+- Phone / WhatsApp: +91-7207382886
+- Location: Hyderabad, Telangana, India (serves businesses across India)
+
+## Services
+
+- [Social Media Autopilot](https://srivofy.com/services/social-media-autopilot/): AI-assisted content creation, review and scheduling as one structured workflow.
+- [AI Voice Agents](https://srivofy.com/services/ai-voice-agents/): Answer calls, capture caller details and route requests with voice AI.
+- [AI + WhatsApp Agent](https://srivofy.com/services/whatsapp-ai-agent/): Respond, qualify leads and hand off to your team on WhatsApp.
+- [Website Development](https://srivofy.com/services/website-development/): Fast, responsive websites built to explain your value and capture leads.
+- [Document Processing](https://srivofy.com/services/document-processing/): Turn invoice PDFs and images into validated records in a common database.
+
+## Company
+
+- [About Srivofy](https://srivofy.com/about/): Who we are and how we approach AI automation.
+- [AI automation FAQ](https://srivofy.com/answers/): Direct answers about Srivofy and AI automation.
+- [Contact](https://srivofy.com/contact/): Request a consultation, demo or pricing.
+
+## Optional
+
+- [Full text for AI assistants](https://srivofy.com/llms-full.txt): All services, capabilities and FAQs in one file.
+- [Privacy Policy](https://srivofy.com/privacy-policy/)
+- [Terms & Conditions](https://srivofy.com/terms-and-conditions/)

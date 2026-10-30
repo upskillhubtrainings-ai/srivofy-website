@@ -1,0 +1,76 @@
+# ─────────────────────────────────────────────────────────────
+#  Srivofy — Apache settings for Hostinger web hosting
+#  (copied into public_html with the rest of the built site)
+# ─────────────────────────────────────────────────────────────
+
+Options -Indexes
+DirectoryIndex index.html index.php
+
+# This is a static site: turn off LiteSpeed's page cache (left over from the
+# WordPress install Hostinger created) so it never serves a stale page.
+<IfModule LiteSpeed>
+  CacheLookup off
+  CacheDisable public /
+</IfModule>
+
+# Custom 404 page (also used for the disabled /portfolio/ route).
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # 1) Force HTTPS. The www <-> non-www choice is left to Hostinger (its CDN
+  #    redirects www.srivofy.com to srivofy.com). Forcing a host here as well
+  #    would create a redirect loop.
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+  # 2) AI agents that ask for Markdown (Accept: text/markdown) get the
+  #    homepage as Markdown; browsers keep getting the normal HTML page.
+  RewriteCond %{HTTP_ACCEPT} text/markdown
+  RewriteRule ^(index\.html)?$ /index.md [L]
+
+  # 3) Add a trailing slash to page URLs without a file extension
+  #    (/about -> /about/), matching the exported folder structure.
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]{2,5}$
+  RewriteCond %{REQUEST_URI} !/$
+  RewriteRule ^(.*)$ /$1/ [R=301,L]
+</IfModule>
+
+# Never serve the mailer's settings file directly.
+<Files "contact-config.php">
+  Require all denied
+</Files>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+
+  # Long cache for fingerprinted build assets; no cache for HTML.
+  <FilesMatch "\.(js|css|woff2|svg|png|jpg|jpeg|webp|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+    Header set X-LiteSpeed-Cache-Control "no-cache"
+    Header append Vary "Accept"
+    # Point AI agents at the site summary and the Markdown homepage (RFC 8288).
+    Header set Link '</llms.txt>; rel="describedby"; type="text/plain", </index.md>; rel="alternate"; type="text/markdown"'
+  </FilesMatch>
+  # The Markdown homepage must never be cached in place of the HTML page.
+  <FilesMatch "\.md$">
+    Header set Cache-Control "no-store"
+    Header set X-LiteSpeed-Cache-Control "no-cache"
+    Header append Vary "Accept"
+  </FilesMatch>
+</IfModule>
+
+AddType "text/markdown; charset=utf-8" .md
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml text/xml text/plain
+</IfModule>
