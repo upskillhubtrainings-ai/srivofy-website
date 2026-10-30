@@ -24,6 +24,13 @@ const empty: Fields = { name: "", email: "", company: "", service: "", challenge
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const order: (keyof Fields)[] = ["name", "email", "company", "service", "challenge", "message"];
 
+/**
+ * WebMCP attributes (toolname, tooldescription, toolparamdescription) that let
+ * in-browser AI agents fill this form for a visitor. They have no visual
+ * effect; spread as a record because React's types don't know them yet.
+ */
+const webmcp = (attrs: Record<string, string>) => attrs;
+
 function validate(v: Fields): Errors {
   const e: Errors = {};
   if (!v.name.trim()) e.name = "Please enter your name.";
@@ -133,7 +140,8 @@ export function ContactForm() {
   }
 
   return (
-    <form ref={formRef} noValidate onSubmit={onSubmit} aria-labelledby="form-title" className="rounded-lg border border-line bg-white p-6 sm:p-8">
+    <form ref={formRef} noValidate onSubmit={onSubmit} aria-labelledby="form-title" className="rounded-lg border border-line bg-white p-6 sm:p-8"
+      {...webmcp({ toolname: "request_srivofy_consultation", tooldescription: "Send Srivofy an enquiry to request a consultation, demo or pricing for an AI automation service. The visitor reviews the details and presses Send." })}>
       <h2 id="form-title" className="text-h3 text-navy">Request a consultation</h2>
       <p className="mt-1.5 text-[15px] text-muted">Tell us about your business and what you&apos;d like to improve.</p>
 
@@ -148,24 +156,24 @@ export function ContactForm() {
       <div className="mt-7 grid gap-5 sm:grid-cols-2">
         <div>
           {label("name", "Name")}
-          <input id="name" name="name" autoComplete="name" value={values.name} onChange={set("name")} onBlur={blur("name")}
+          <input id="name" name="name" {...webmcp({ toolparamdescription: "Full name of the person enquiring." })} autoComplete="name" value={values.name} onChange={set("name")} onBlur={blur("name")}
             aria-invalid={!!errors.name} aria-describedby={describedBy("name")} className={`${input} h-12 ${border("name")}`} />
           {err("name")}
         </div>
         <div>
           {label("email", "Business email")}
-          <input id="email" name="email" type="email" inputMode="email" autoComplete="email" value={values.email} onChange={set("email")} onBlur={blur("email")}
+          <input id="email" name="email" {...webmcp({ toolparamdescription: "Business email address for the reply." })} type="email" inputMode="email" autoComplete="email" value={values.email} onChange={set("email")} onBlur={blur("email")}
             aria-invalid={!!errors.email} aria-describedby={describedBy("email")} className={`${input} h-12 ${border("email")}`} placeholder="name@company.com" />
           {err("email")}
         </div>
         <div>
           {label("company", "Company", false)}
-          <input id="company" name="company" autoComplete="organization" value={values.company} onChange={set("company")} className={`${input} h-12 ${border("company")}`} />
+          <input id="company" name="company" {...webmcp({ toolparamdescription: "Company name (optional)." })} autoComplete="organization" value={values.company} onChange={set("company")} className={`${input} h-12 ${border("company")}`} />
         </div>
         <div>
           {label("service", "Service of interest")}
           <div className="relative">
-            <select id="service" name="service" value={values.service} onChange={set("service")} onBlur={blur("service")}
+            <select id="service" name="service" {...webmcp({ toolparamdescription: "The Srivofy service the enquiry is about." })} value={values.service} onChange={set("service")} onBlur={blur("service")}
               aria-invalid={!!errors.service} aria-describedby={describedBy("service")}
               className={`${input} h-12 appearance-none pr-10 ${border("service")} ${values.service ? "" : "text-muted"}`}>
               <option value="" disabled>Select a service</option>
@@ -179,12 +187,12 @@ export function ContactForm() {
         </div>
         <div className="sm:col-span-2">
           {label("challenge", "Current challenge", false)}
-          <input id="challenge" name="challenge" value={values.challenge} onChange={set("challenge")}
+          <input id="challenge" name="challenge" {...webmcp({ toolparamdescription: "The business problem to solve (optional)." })} value={values.challenge} onChange={set("challenge")}
             className={`${input} h-12 ${border("challenge")}`} placeholder="e.g. We miss calls during busy hours" />
         </div>
         <div className="sm:col-span-2">
           {label("message", "Message")}
-          <textarea id="message" name="message" rows={5} value={values.message} onChange={set("message")} onBlur={blur("message")}
+          <textarea id="message" name="message" {...webmcp({ toolparamdescription: "The enquiry message: what the business does and what it needs." })} rows={5} value={values.message} onChange={set("message")} onBlur={blur("message")}
             aria-invalid={!!errors.message} aria-describedby={describedBy("message")} className={`${input} resize-y py-3 ${border("message")}`} />
           {err("message")}
         </div>

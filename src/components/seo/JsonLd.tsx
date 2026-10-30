@@ -19,13 +19,15 @@ const origin = siteConfig.canonicalUrl;
 const businessId = `${origin}/#business`;
 const absolute = (path: string) => `${origin}${path}`;
 
-/** Site-wide: the business (a LocalBusiness in Hyderabad) and the website. */
+const serviceId = (s: Service) => `${absolute(serviceHref(s))}#service`;
+
+/** Site-wide: the business (an Organization and LocalBusiness in Hyderabad), its services and the website. */
 export function businessSchema() {
   return {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "ProfessionalService",
+        "@type": ["Organization", "ProfessionalService"],
         "@id": businessId,
         name: siteConfig.name,
         alternateName: "Srivofy AI Agency",
@@ -36,6 +38,15 @@ export function businessSchema() {
         image: absolute("/opengraph-image"),
         email: siteConfig.email,
         telephone: siteConfig.phone,
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "sales",
+          email: siteConfig.email,
+          telephone: siteConfig.phone,
+          areaServed: "IN",
+          availableLanguage: ["English"],
+          url: absolute("/contact/"),
+        },
         address: {
           "@type": "PostalAddress",
           addressLocality: "Hyderabad",
@@ -60,10 +71,20 @@ export function businessSchema() {
           name: "AI automation services",
           itemListElement: services.map((s) => ({
             "@type": "Offer",
-            itemOffered: { "@type": "Service", name: s.name, url: absolute(serviceHref(s)) },
+            itemOffered: { "@id": serviceId(s) },
           })),
         },
       },
+      ...services.map((s) => ({
+        "@type": "Service",
+        "@id": serviceId(s),
+        name: s.name,
+        serviceType: s.metaTitle,
+        description: s.summary,
+        url: absolute(serviceHref(s)),
+        provider: { "@id": businessId },
+        areaServed: { "@type": "Country", name: "India" },
+      })),
       {
         "@type": "WebSite",
         "@id": `${origin}/#website`,
@@ -105,7 +126,7 @@ export function serviceSchema(s: Service) {
     "@graph": [
       {
         "@type": "Service",
-        "@id": `${url}#service`,
+        "@id": serviceId(s),
         name: s.name,
         serviceType: s.metaTitle,
         description: s.metaDescription,

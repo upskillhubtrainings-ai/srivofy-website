@@ -4,6 +4,7 @@ import { Analytics } from "@/components/layout/Analytics";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { UtilityBar } from "@/components/layout/UtilityBar";
+import { WebMcpTools } from "@/components/layout/WebMcpTools";
 import { WhatsAppLauncher } from "@/components/layout/WhatsAppLauncher";
 import { businessSchema, JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/config/site";
@@ -72,6 +73,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <WhatsAppLauncher />
         <Analytics />
+        <WebMcpTools />
         <JsonLd data={businessSchema()} />
       </body>
     </html>

@@ -19,8 +19,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Portfolio is listed only when enabled.
     ...(siteConfig.portfolioEnabled ? ["/portfolio/"] : []),
   ];
+  // The site is rebuilt on every change, so the build time is when it last changed.
+  const lastModified = new Date();
   return paths.map((p) => ({
     url: `${base}${p}`,
+    lastModified,
     changeFrequency: "monthly",
     priority: p === "/" ? 1 : p.startsWith("/services") ? 0.8 : 0.6,
   }));
