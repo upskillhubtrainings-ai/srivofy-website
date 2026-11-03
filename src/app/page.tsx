@@ -15,6 +15,7 @@ import { ApproachStages } from "@/components/home/ApproachStages";
 import { ArchitectureExplorer } from "@/components/home/ArchitectureExplorer";
 import { ServicesEditorial } from "@/components/home/ServicesEditorial";
 import { CtaBand } from "@/components/shared/CtaBand";
+import { PlannerOffer } from "@/components/shared/PlannerOffer";
 import { ButtonLink } from "@/components/ui/Button";
 import { PauseOffscreen, Reveal } from "@/components/ui/Reveal";
 import { Eyebrow, Section, SectionHeader } from "@/components/ui/Section";
@@ -56,12 +57,15 @@ export default function Home() {
               Srivofy helps businesses automate customer conversations, streamline operations,
               process documents, and build better digital experiences.
             </p>
+            <p className="enter mt-4 text-[15px] text-muted" style={delay(230)}>
+              Based in Hyderabad, working with businesses in India and worldwide.
+            </p>
             <div className="enter mt-9 flex flex-col gap-3 sm:flex-row" style={delay(280)}>
               <ButtonLink href="/services/" size="lg" arrow>
                 Explore Our Solutions
               </ButtonLink>
               <ButtonLink href={consultationHref} variant="secondary" size="lg">
-                Request a Consultation
+                Book Free Consultation
               </ButtonLink>
             </div>
           </div>
@@ -168,6 +172,8 @@ export default function Home() {
           })}
         </ul>
       </Section>
+
+      <PlannerOffer />
 
       <CtaBand headline="Let's find the right automation opportunities for your business." />
     </>

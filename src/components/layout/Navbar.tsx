@@ -180,7 +180,7 @@ export function Navbar() {
 
         <div className="flex items-center gap-3">
           <div className="hidden sm:block">
-            <ButtonLink href={consultationHref}>Request a Consultation</ButtonLink>
+            <ButtonLink href={consultationHref}>Book Free Consultation</ButtonLink>
           </div>
           <button
             ref={toggleRef}
@@ -254,7 +254,7 @@ export function Navbar() {
             </ul>
             <div className="container-page pb-10">
               <ButtonLink href={consultationHref} size="lg" className="w-full" arrow>
-                Request a Consultation
+                Book Free Consultation
               </ButtonLink>
             </div>
           </motion.div>

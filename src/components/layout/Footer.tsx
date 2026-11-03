@@ -10,6 +10,7 @@ import { socialIconFor } from "./BrandIcons";
 const companyLinks = [
   { label: "Our Approach", href: "/#approach" },
   { label: "About", href: "/about/" },
+  { label: "Free tips", href: "/tips/" },
   { label: "Contact", href: "/contact/" },
   // Portfolio is added here automatically when siteConfig.portfolioEnabled is true.
   ...(siteConfig.portfolioEnabled ? [{ label: "Portfolio", href: "/portfolio/" }] : []),
@@ -26,6 +27,7 @@ export function Footer() {
           <p className="mt-5 text-[15px] leading-relaxed text-on-navy-muted">
             Srivofy is an AI automation agency helping businesses automate customer conversations,
             streamline operations, process documents and build better digital experiences.
+            Based in Hyderabad, working with businesses in India and worldwide.
           </p>
           <ul className="mt-6 flex gap-2" aria-label="Srivofy on social media">
             {socialProfiles.map(({ key, label, url }) => {

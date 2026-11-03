@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...services.map(serviceHref),
     "/about/",
     "/contact/",
+    "/tips/",
     // FAQ for search and AI answer engines; not linked in the menu.
     "/answers/",
     "/privacy-policy/",

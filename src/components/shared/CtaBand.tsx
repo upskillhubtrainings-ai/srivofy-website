@@ -5,7 +5,7 @@ import { Reveal } from "../ui/Reveal";
 /** Navy closing call-to-action band used across pages. */
 export function CtaBand({
   headline,
-  primary = "Request a Consultation",
+  primary = "Book Free Consultation",
   primaryHref = consultationHref,
   secondary = "Explore Services",
   secondaryHref = "/services/",

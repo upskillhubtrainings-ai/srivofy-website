@@ -56,7 +56,17 @@ export function businessSchema() {
         areaServed: [
           { "@type": "City", name: "Hyderabad" },
           { "@type": "Country", name: "India" },
+          { "@type": "Place", name: "Worldwide (remote)" },
         ],
+        foundingDate: "2025",
+        founder: {
+          "@type": "Person",
+          name: "Srikanth",
+          jobTitle: "Founder",
+          description: "Founder of Srivofy, with 18 years in IT as a Business Analyst and Project Manager.",
+          image: absolute("/brand/founder-cartoon-head.webp"),
+          url: absolute("/about/"),
+        },
         sameAs: socialProfiles.map((p) => p.url),
         knowsAbout: [
           "AI automation",

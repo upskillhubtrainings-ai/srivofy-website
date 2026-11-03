@@ -11,6 +11,7 @@ import {
 } from "@/components/service/ServiceBlocks";
 import { CtaBand } from "@/components/shared/CtaBand";
 import { FaqList } from "@/components/shared/FaqList";
+import { PlannerOffer } from "@/components/shared/PlannerOffer";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { ContentCalendar, ContentPipeline, SampleTag } from "@/components/visuals/ServiceVisuals";
@@ -91,6 +92,7 @@ export default function SocialMediaAutopilotPage() {
         preview={<ContentCalendar />}
       />
 
+      <PlannerOffer tone="white" />
       <UseCaseList service={service} />
       <PricingBox service={service} />
       <FaqList items={service.faqs} tone="paper" />

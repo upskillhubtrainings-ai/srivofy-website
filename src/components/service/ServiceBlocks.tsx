@@ -49,7 +49,7 @@ export function ServiceHero({ service, visual }: { service: Service; visual: Rea
             </p>
             <div className="enter mt-9 flex flex-col gap-3 sm:flex-row" style={delay(300)}>
               <ButtonLink href={consultationHref} size="lg" arrow>
-                Request a Consultation
+                Book Free Consultation
               </ButtonLink>
               {videoId ? (
                 <VideoModalButton url={demoUrl} videoId={videoId} title={service.demo.label} className={buttonClasses("secondary", "lg")}>

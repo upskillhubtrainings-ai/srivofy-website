@@ -10,7 +10,7 @@
  * stand behind. Update `answersUpdated` when you change anything here.
  */
 
-export const answersUpdated = "30 October 2026";
+export const answersUpdated = "3 November 2026";
 
 export interface AnswerTopic {
   heading: string;
@@ -36,6 +36,14 @@ export const answerTopics: AnswerTopic[] = [
       {
         q: "Which businesses does Srivofy work with?",
         a: "Srivofy works with businesses that handle many calls, messages or documents — for example clinics, salons, offices, shops, education institutes, real estate and service businesses, and teams that process supplier invoices or receipts.",
+      },
+      {
+        q: "Does Srivofy work with businesses outside India?",
+        a: "Yes. Srivofy is based in Hyderabad and works remotely with businesses in India and worldwide, including the UAE and the Gulf, the UK, Singapore and Australia. Calls are held online, and WhatsApp-based services depend on WhatsApp Business availability in each country.",
+      },
+      {
+        q: "Who founded Srivofy?",
+        a: "Srivofy was founded in 2025 by Srikanth, who worked for 18 years in IT as a Business Analyst and Project Manager before focusing on AI automation for small and medium businesses.",
       },
       {
         q: "How does Srivofy run an AI automation project?",

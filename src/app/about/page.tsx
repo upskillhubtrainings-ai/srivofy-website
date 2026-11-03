@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Compass, Link2, PenTool, UserCheck } from "lucide-react";
 import { ApproachStages } from "@/components/home/ApproachStages";
 import { CtaBand } from "@/components/shared/CtaBand";
@@ -36,7 +37,41 @@ export default function AboutPage() {
         intro="Srivofy is an AI automation agency. We help businesses identify where automation genuinely helps, design workflows around their people and systems, and build solutions that stay understandable and controllable."
       />
 
-      <Section labelledBy="principles-title">
+      <Section labelledBy="founder-title">
+        <div className="grid items-center gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          <Reveal className="mx-auto w-full max-w-sm">
+            <div className="relative rounded-lg border border-line bg-paper px-8 pt-10">
+              <Image
+                src="/brand/founder-cartoon.webp"
+                alt="Illustration of Srikanth, founder of Srivofy"
+                width={520}
+                height={780}
+                className="mx-auto h-auto w-full max-w-[300px]"
+              />
+            </div>
+          </Reveal>
+          <div>
+            <SectionHeader id="founder-title" eyebrow="Meet the founder" title="Srikanth, Founder of Srivofy" />
+            <div className="mt-6 space-y-4 text-[17px] leading-relaxed text-ink">
+              <p>
+                For 18 years I worked in IT as a Business Analyst and Project Manager. My job was understanding how a
+                business really works, finding where things break, and making sure the right system got built.
+              </p>
+              <p>
+                With AI, there is now real scope to automate the repetitive work that slows small and medium businesses
+                down: missed enquiries, slow replies, the same questions every day, no time for content.
+              </p>
+              <p>
+                I started Srivofy in 2025 to help business owners, in India and worldwide, put that automation in place
+                the practical way: start with the real problem, map the workflow before building, and keep a person in
+                charge of the steps that matter.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section tone="paper" labelledBy="principles-title">
         <SectionHeader id="principles-title" eyebrow="How we work" title="Four principles behind every project." />
         <ol className="mt-12 grid gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-2">
           {principles.map((p, i) => (
@@ -52,7 +87,7 @@ export default function AboutPage() {
         </ol>
       </Section>
 
-      <Section tone="paper" labelledBy="method-title">
+      <Section labelledBy="method-title">
         <SectionHeader id="method-title" eyebrow="Our approach" title="From discovery to continuous improvement." />
         <div className="mt-14">
           <ApproachStages />

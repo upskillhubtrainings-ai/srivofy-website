@@ -49,6 +49,9 @@ export const siteConfig = {
    */
   portfolioEnabled: false,
 
+  /** Free Weekly Content Planner (PDF in public/downloads). */
+  plannerPdf: "/downloads/srivofy-weekly-content-planner.pdf",
+
   /**
    * Demo links, one per service.
    * - YouTube URL: the demo buttons play it in a popup on the page.
@@ -157,14 +160,23 @@ export function youtubeId(url: string | undefined | null): string | null {
   return m ? m[1] : null;
 }
 
+/** Any link to this hash opens the free planner form, e.g. srivofy.com/#planner. */
+export const plannerHash = "#planner";
+
+/** The homepage section with the planner button (the top bar links here). */
+export const plannerSectionHref = "/#free-planner";
+
 export const telHref = `tel:${siteConfig.phone.replace(/[^\d+]/g, "")}`;
 export const mailHref = `mailto:${siteConfig.email}`;
 export const websiteLabel = siteConfig.website.replace(/^https?:\/\//, "");
 
-/** Consultation destination: booking link if set, otherwise the Contact page. */
+/**
+ * Consultation destination: an external booking link if set, otherwise "#book",
+ * which opens the free-check booking popup (BookingDialog) on any page.
+ */
 export const consultationHref = isConfiguredUrl(siteConfig.consultationUrl)
   ? siteConfig.consultationUrl
-  : "/contact/";
+  : "#book";
 
 /** WhatsApp launcher destination, or null when nothing is configured. */
 export function whatsappHref(): string | null {
