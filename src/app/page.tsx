@@ -14,6 +14,7 @@ import {
 import { ApproachStages } from "@/components/home/ApproachStages";
 import { ArchitectureExplorer } from "@/components/home/ArchitectureExplorer";
 import { ServicesEditorial } from "@/components/home/ServicesEditorial";
+import { StartPackages } from "@/components/home/StartPackages";
 import { CtaBand } from "@/components/shared/CtaBand";
 import { PlannerOffer } from "@/components/shared/PlannerOffer";
 import { ButtonLink } from "@/components/ui/Button";
@@ -116,6 +117,21 @@ export default function Home() {
         <div className="mt-14">
           <ServicesEditorial />
         </div>
+        <Reveal>
+          <div className="mt-12 grid gap-6 rounded-lg border border-blue bg-white p-7 sm:p-9 lg:grid-cols-[1.4fr_1fr] lg:items-center lg:gap-12">
+            <div>
+              <p className="text-eyebrow text-blue">One team, both jobs</p>
+              <h3 className="text-h3 mt-3 text-navy">Your posts bring the enquiries. Your WhatsApp agent answers them.</h3>
+              <p className="mt-3 text-[16px] leading-relaxed text-muted">
+                Most tools do only one of these. Srivofy plans your social media and runs your WhatsApp AI agent together,
+                so every post has a reply ready and no lead falls between two vendors.
+              </p>
+            </div>
+            <div className="flex lg:justify-end">
+              <ButtonLink href="#how-to-start" size="lg" arrow>See how to start</ButtonLink>
+            </div>
+          </div>
+        </Reveal>
       </Section>
 
       {/* Approach */}
@@ -130,6 +146,8 @@ export default function Home() {
           <ApproachStages />
         </div>
       </Section>
+
+      <StartPackages />
 
       {/* Interactive architecture */}
       <Section tone="navy" labelledBy="arch-title">

@@ -175,6 +175,15 @@ export const contactForService = (s: Service) => `/contact/?service=${encodeURIC
  * Pricing box. Pricing is quoted per project, so the whole card links to the
  * Contact form with this service already selected.
  */
+/** What changes the quote for each service (shown instead of prices). */
+const priceFactors: Record<Service["id"], string[]> = {
+  social: ["Number of platforms", "Posts per week", "Languages", "Videos or images only"],
+  voice: ["Calls per month", "Languages and voices", "Call routing rules", "Booking or CRM integration"],
+  whatsapp: ["Messages per month", "Number of answers and topics", "Languages", "CRM, sheet or booking integration"],
+  website: ["Number of pages", "Forms and bookings", "AI assistant on the site", "Content and photos provided or written"],
+  documents: ["Documents per month", "Number of document types", "Scanned files or clean PDFs", "Where the data is saved"],
+};
+
 export function PricingBox({ service }: { service: Service }) {
   return (
     <section aria-labelledby="pricing-title" className="bg-white py-16 sm:py-20">
@@ -193,6 +202,12 @@ export function PricingBox({ service }: { service: Service }) {
                 {service.name} is scoped to your needs — volume, integrations and the level of support
                 you want. Tell us what you need and we&apos;ll send you a clear, no-obligation quote.
               </p>
+              <p className="mt-6 text-[14px] font-semibold text-navy">What affects the price</p>
+              <ul className="mt-3 flex flex-wrap gap-2">
+                {priceFactors[service.id].map((f) => (
+                  <li key={f} className="rounded-full border border-line bg-white px-3.5 py-1.5 text-[14px] text-ink">{f}</li>
+                ))}
+              </ul>
             </div>
             <div className="flex flex-col gap-4 lg:items-end">
               <ul className="space-y-2 text-[15px] text-ink">

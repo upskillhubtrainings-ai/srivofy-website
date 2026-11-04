@@ -121,4 +121,38 @@ if (!$sent) {
     respond(500, ['ok' => false, 'error' => 'The mail server could not send your request.']);
 }
 
+// Confirmation to the visitor, only when they gave an email. Fixed text only.
+if ($email !== '') {
+    $replyBody = implode("\n", [
+        'Hi ' . $name . ',',
+        '',
+        'Thanks for downloading the free Weekly Content Planner from Srivofy.',
+        '',
+        'If the download did not start, you can get it here:',
+        'https://srivofy.com/downloads/srivofy-weekly-content-planner.pdf',
+        '',
+        'Quick start: block one hour this week, pick 3 posts (one tip, one behind-the-scenes, one offer)',
+        'and schedule them. Three posts every week beats seven posts once.',
+        '',
+        'Want help with your posts or WhatsApp enquiries? Reply to this email or book a free',
+        '15-minute check at https://srivofy.com/#book',
+        '',
+        'Srikanth',
+        'Srivofy, AI Automation Agency',
+    ]);
+    @mail(
+        $email,
+        '=?UTF-8?B?' . base64_encode('Your free Weekly Content Planner from Srivofy') . '?=',
+        $replyBody,
+        implode("\r\n", [
+            'From: Srivofy <' . $config['from'] . '>',
+            'Reply-To: ' . $config['to'],
+            'MIME-Version: 1.0',
+            'Content-Type: text/plain; charset=UTF-8',
+            'X-Mailer: Srivofy-Website',
+        ]),
+        '-f' . $config['from']
+    );
+}
+
 respond(200, ['ok' => true]);

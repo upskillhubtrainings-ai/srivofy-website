@@ -181,6 +181,8 @@ export const services: Service[] = [
       { q: "Do we need a WhatsApp Business account?", a: "Yes. Automated assistants run on the WhatsApp Business Platform, which has its own approval process and messaging policies. We guide you through setup." },
       { q: "Can our team still reply manually?", a: "Yes. Conversations can be handed to your team, who continue with the context the assistant collected." },
       { q: "Where do captured leads go?", a: "Wherever you need them — a CRM, spreadsheet or database — once that integration is configured and tested." },
+      { q: "How is this different from DIY tools like AiSensy, Interakt or WATI?", a: "Those are self-serve platforms: you get the software and set up the flows, answers and follow-ups yourself. Srivofy does that work for you. We write the answers with you, connect your sheet or CRM, test everything and keep improving it, and you have a person to call when something needs to change." },
+      { q: "WhatsApp Business already has AI. Why would we need you?", a: "Built-in AI features are a good start, but they only know what you set up and have limited control over hand-over and lead capture. We set up approved answers for your business, decide when a person takes over, save every lead where your team works, and review the conversations regularly so the replies stay accurate." },
       { q: "Is the conversation on this page a live agent?", a: "No. The conversation shown on this page is an example, not a connected WhatsApp agent. The chat assistant in the corner of the website is a live AI assistant." },
     ],
     ctaHeadline: "Organise your WhatsApp enquiries into a clear workflow.",

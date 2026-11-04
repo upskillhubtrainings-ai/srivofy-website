@@ -156,4 +156,38 @@ if (!$sent) {
     respond(500, ['ok' => false, 'error' => 'The mail server could not send your request.']);
 }
 
+// Confirmation to the visitor. Fixed text only, so the form can't be used to send other mail.
+$replySubject = 'We got your request: free consultation on ' . $day->format('j M') . ' at ' . $time . ' IST';
+$replyBody = implode("\n", [
+    'Hi ' . $name . ',',
+    '',
+    'Thank you for booking a free 15-minute consultation with Srivofy.',
+    '',
+    'Requested time: ' . $when,
+    'Topic: ' . $topic,
+    '',
+    'We will confirm the slot by email or WhatsApp within one working day.',
+    'If you need to change the time, just reply to this email.',
+    '',
+    'To get the most from the call, think about the one task that takes most of your time each week:',
+    'replying to messages, missed calls, social media posts or paperwork.',
+    '',
+    'Srikanth',
+    'Srivofy, AI Automation Agency',
+    'https://srivofy.com · WhatsApp +91-7207382886',
+]);
+@mail(
+    $email,
+    '=?UTF-8?B?' . base64_encode($replySubject) . '?=',
+    $replyBody,
+    implode("\r\n", [
+        'From: Srivofy <' . $config['from'] . '>',
+        'Reply-To: ' . $config['to'],
+        'MIME-Version: 1.0',
+        'Content-Type: text/plain; charset=UTF-8',
+        'X-Mailer: Srivofy-Website',
+    ]),
+    '-f' . $config['from']
+);
+
 respond(200, ['ok' => true]);

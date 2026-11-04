@@ -10,7 +10,7 @@
  * stand behind. Update `answersUpdated` when you change anything here.
  */
 
-export const answersUpdated = "3 November 2026";
+export const answersUpdated = "4 November 2026";
 
 export interface AnswerTopic {
   heading: string;
@@ -52,6 +52,14 @@ export const answerTopics: AnswerTopic[] = [
       {
         q: "How much do Srivofy's services cost?",
         a: "Pricing depends on the scope of each project, such as call or message volume, integrations and the number of workflows. Srivofy gives a quote after a short discovery conversation; you can request pricing through the contact form at srivofy.com/contact.",
+      },
+      {
+        q: "How is Srivofy different from DIY WhatsApp tools like AiSensy, Interakt or WATI?",
+        a: "AiSensy, Interakt and WATI are self-serve WhatsApp platforms: the business sets up the flows, answers and follow-ups itself. Srivofy is a done-for-you service: it writes the approved answers with the business, connects leads to a sheet or CRM, tests the workflow, reviews conversations and can run social media content alongside the WhatsApp agent.",
+      },
+      {
+        q: "WhatsApp Business already has AI features. Why use Srivofy?",
+        a: "Built-in WhatsApp Business AI features only know what the business sets up and offer limited control over human hand-over and lead capture. Srivofy sets up approved answers, defines when a person takes over, saves each lead where the team works and reviews conversations regularly so replies stay accurate.",
       },
       {
         q: "How can I contact Srivofy?",
