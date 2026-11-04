@@ -17,6 +17,7 @@ const norm = (p: string) => (p.length > 1 ? p.replace(/\/$/, "") : p);
 export function Navbar() {
   const pathname = norm(usePathname() ?? "/");
   const [scrolled, setScrolled] = useState(false);
+  const [barHidden, setBarHidden] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileServices, setMobileServices] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -25,8 +26,16 @@ export function Navbar() {
   const panelRef = useRef<HTMLDivElement>(null);
   const hoverTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
 
+  // Phones: the top bar slides away while scrolling down and returns on the way up.
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 48);
+    let lastY = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 48);
+      if (Math.abs(y - lastY) < 8) return;
+      setBarHidden(y > lastY && y > 112);
+      lastY = y;
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -99,9 +108,9 @@ export function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b bg-white/95 backdrop-blur transition-[border-color,box-shadow] duration-(--dur-base) ${
+      className={`sticky top-0 z-50 border-b bg-white/95 backdrop-blur transition-[border-color,box-shadow,transform] duration-(--dur-base) ${
         scrolled || mobileOpen ? "border-line shadow-[0_6px_24px_-18px_rgb(16_29_54/0.35)]" : "border-transparent"
-      }`}
+      } ${barHidden && !mobileOpen ? "max-md:-translate-y-10" : ""}`}
     >
       {/* The top bar (planner offer, contact details) sticks with the menu. */}
       <UtilityBar />
