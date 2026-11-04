@@ -149,7 +149,7 @@ export function DemoSection({
   extra?: React.ReactNode;
 }) {
   return (
-    <section id="demo" aria-labelledby="demo-title" className="scroll-mt-24 border-y border-line bg-paper py-20 sm:py-24">
+    <section id="demo" aria-labelledby="demo-title" className="scroll-mt-32 border-y border-line bg-paper py-20 sm:py-24">
       <div className="container-page">
         <SectionHeader
           id="demo-title"

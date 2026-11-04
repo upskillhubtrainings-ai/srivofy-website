@@ -9,6 +9,7 @@ import { consultationHref, navLinks } from "@/config/site";
 import { serviceHref, services } from "@/config/services";
 import { ButtonLink } from "../ui/Button";
 import { Logo } from "../ui/Logo";
+import { UtilityBar } from "./UtilityBar";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 const norm = (p: string) => (p.length > 1 ? p.replace(/\/$/, "") : p);
@@ -102,6 +103,8 @@ export function Navbar() {
         scrolled || mobileOpen ? "border-line shadow-[0_6px_24px_-18px_rgb(16_29_54/0.35)]" : "border-transparent"
       }`}
     >
+      {/* The top bar (planner offer, contact details) sticks with the menu. */}
+      <UtilityBar />
       <nav aria-label="Main" className="container-page flex h-[72px] items-center justify-between gap-6">
         <Link href="/" aria-label="Srivofy home" className="shrink-0">
           <Logo />
@@ -202,7 +205,7 @@ export function Navbar() {
             id="mobile-menu"
             ref={panelRef}
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "calc(100dvh - 72px)" }}
+            animate={{ opacity: 1, height: "calc(100dvh - var(--header-h))" }}
             exit={{ opacity: 0, height: 0, transition: { duration: 0.18 } }}
             transition={{ duration: 0.28, ease }}
             className="overflow-y-auto border-t border-line bg-white lg:hidden"

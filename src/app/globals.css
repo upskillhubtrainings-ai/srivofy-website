@@ -28,7 +28,7 @@
   --dur-fast: 160ms;
   --dur-base: 260ms;
   --dur-slow: 700ms;
-  --header-h: 72px;
+  --header-h: 112px; /* top bar 40px + menu 72px, both sticky */
 }
 
 @theme inline {
