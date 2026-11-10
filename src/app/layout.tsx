@@ -47,6 +47,8 @@ export const metadata: Metadata = {
     locale: "en_IN",
   },
   twitter: { card: "summary_large_image" },
+  // Proves to Meta (Business Manager → Domains) that Srivofy owns srivofy.com.
+  verification: { other: { "facebook-domain-verification": "vriqleisil314fh0k81an3h8wmggfx" } },
 };
 
 export const viewport: Viewport = {
