@@ -12,5 +12,6 @@ export const legalConfig = {
 
 export const legalLinks = [
   { label: "Privacy Policy", href: "/privacy-policy/" },
+  { label: "Data Deletion", href: "/data-deletion/" },
   { label: "Terms & Conditions", href: "/terms-and-conditions/" },
 ] as const;

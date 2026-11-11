@@ -37,6 +37,7 @@ ${services.map((s) => `- [${s.name}](${url(serviceHref(s))}): ${s.summary}`).joi
 
 - [Full text for AI assistants](${url("/llms-full.txt")}): All services, capabilities and FAQs in one file.
 - [Privacy Policy](${url("/privacy-policy/")})
+- [Data Deletion](${url("/data-deletion/")}): How to ask Srivofy to delete your data.
 - [Terms & Conditions](${url("/terms-and-conditions/")})
 `;
 }

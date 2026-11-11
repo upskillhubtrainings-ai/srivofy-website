@@ -174,7 +174,9 @@ const sections: LegalSection[] = [
           <li>stop using it (withdraw consent).</li>
         </ul>
         <p>
-          To make a request or raise a concern, email {email}. We will respond within a reasonable
+          To ask us to delete your data, follow the steps on our{" "}
+          <Link href="/data-deletion/">Data Deletion</Link> page. For any other request or concern,
+          email {email}. We will respond within a reasonable
           time. If you are not satisfied, you may contact the Data Protection Board of India.
         </p>
       </>
